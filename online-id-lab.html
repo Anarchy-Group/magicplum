@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magic Plum Company — Identity Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fff8fd;
+      --bg-soft: #fff0f8;
+      --surface: rgba(255,255,255,0.92);
+      --surface-2: #fff6fb;
+      --text: #6b4b67;
+      --muted: #9b7f98;
+      --primary: #ff74ba;
+      --primary-strong: #ff4ea6;
+      --lavender: #d8c4ff;
+      --mint: #ccf5e7;
+      --peach: #ffe1cc;
+      --border: #ffd8eb;
+      --shadow: 0 12px 30px rgba(255, 116, 186, 0.14);
+      --radius: 22px;
+      --max-width: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Quicksand', system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(255, 205, 233, 0.85), transparent 16%),
+        radial-gradient(circle at 90% 12%, rgba(216, 196, 255, 0.75), transparent 15%),
+        radial-gradient(circle at 82% 80%, rgba(204, 245, 231, 0.75), transparent 16%),
+        linear-gradient(180deg, #fffaff 0%, #fff3fa 100%);
+      line-height: 1.65;
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 248, 253, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--primary-strong);
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .brand-badge {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #ffd1ea, #e2d2ff, #d7fff2);
+      border: 2px solid #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a,
+    .footer-links a,
+    .mini-link {
+      text-decoration: none;
+      color: var(--text);
+      padding: 0.65rem 0.95rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--border);
+      font-weight: 700;
+      transition: transform 0.15s ease;
+    }
+
+    .nav-links a:hover,
+    .footer-links a:hover,
+    .mini-link:hover,
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      padding: 4rem 0 2.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1.2rem;
+      align-items: center;
+    }
+
+    .bubble-label {
+      display: inline-block;
+      background: #fff;
+      border: 2px solid var(--border);
+      color: var(--primary-strong);
+      border-radius: 999px;
+      padding: 0.55rem 0.9rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+      margin-bottom: 1rem;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      font-family: 'Fredoka', sans-serif;
+      line-height: 1.08;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 6vw, 4.8rem);
+      color: var(--primary-strong);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--primary-strong);
+      margin-bottom: 0.65rem;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #ff63b1, #b88dff 55%, #ff94cb);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    p,
+    .section-head p,
+    .lab-card p,
+    .journey-step p,
+    .package-card p,
+    .quiz-card p,
+    .cta-box p,
+    .hero-copy p,
+    .lab-tagline,
+    .result-card p {
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.4rem;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 0.9rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 2px solid var(--border);
+      transition: transform 0.15s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+      color: white;
+      border-color: transparent;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--primary-strong);
+    }
+
+    .panel,
+    .lab-card,
+    .journey-step,
+    .package-card,
+    .quiz-card,
+    .cta-box,
+    .result-card {
+      background: rgba(255,255,255,0.92);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel {
+      padding: 1rem;
+      background: linear-gradient(180deg, #fffdfd, #fff6fb);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-art {
+      min-height: 430px;
+      padding: 1.2rem;
+      border-radius: 20px;
+      border: 2px dashed #ffc8e4;
+      background:
+        radial-gradient(circle at 25% 25%, rgba(255,255,255,0.95), transparent 14%),
+        radial-gradient(circle at 74% 24%, rgba(255, 220, 240, 0.95), transparent 15%),
+        radial-gradient(circle at 20% 80%, rgba(216, 196, 255, 0.65), transparent 17%),
+        linear-gradient(180deg, #fff9fd 0%, #fff0f8 100%);
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      align-content: space-between;
+    }
+
+    .floating {
+      position: absolute;
+      font-size: 1.3rem;
+      opacity: 0.9;
+    }
+
+    .floating.one { top: 18px; left: 22px; }
+    .floating.two { top: 28px; right: 22px; }
+    .floating.three { bottom: 24px; left: 26px; }
+    .floating.four { bottom: 24px; right: 28px; }
+    .floating.five { top: 45%; left: 12px; }
+    .floating.six { top: 48%; right: 12px; }
+
+    .identity-board {
+      width: min(100%, 330px);
+      margin: 1rem auto;
+      background: rgba(255,255,255,0.96);
+      border: 2px solid var(--border);
+      border-radius: 26px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .identity-avatar {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #ffe5f3 0%, #ffd6eb 100%);
+      border: 2px solid #ffc2df;
+      position: relative;
+    }
+
+    .identity-avatar::before,
+    .identity-avatar::after {
+      content: '';
+      position: absolute;
+      top: 56px;
+      width: 18px;
+      height: 26px;
+      border-radius: 50%;
+      background: #775c83;
+    }
+
+    .identity-avatar::before { left: 40px; }
+    .identity-avatar::after { right: 40px; }
+
+    .identity-avatar span {
+      position: absolute;
+      left: 50%;
+      bottom: 28px;
+      width: 22px;
+      height: 12px;
+      transform: translateX(-50%);
+      border-bottom: 3px solid #775c83;
+      border-radius: 0 0 14px 14px;
+    }
+
+    .identity-swatches {
+      display: flex;
+      justify-content: center;
+      gap: 0.55rem;
+      margin: 0.8rem 0 1rem;
+    }
+
+    .swatch {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .swatch.one { background: #ff9ecf; }
+    .swatch.two { background: #d8c4ff; }
+    .swatch.three { background: #ccf5e7; }
+    .swatch.four { background: #ffe1cc; }
+
+    .stats-grid,
+    .lab-grid,
+    .journey-grid,
+    .packages-grid,
+    .quiz-grid,
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .stat {
+      padding: 0.95rem;
+      background: white;
+      border: 2px solid var(--border);
+      border-radius: 18px;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--primary-strong);
+      font-size: 1.45rem;
+      font-family: 'Fredoka', sans-serif;
+    }
+
+    section {
+      padding: 1rem 0 3rem;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .lab-card,
+    .journey-step,
+    .package-card,
+    .quiz-card,
+    .result-card {
+      padding: 1.25rem;
+      background: linear-gradient(180deg, #fff, #fff6fb);
+    }
+
+    .icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #ffd9ec, #e5d8ff, #dafbee);
+      border: 2px solid #fff;
+      box-shadow: var(--shadow);
+      font-size: 1.4rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .lab-card h3,
+    .journey-step h3,
+    .package-card h3,
+    .quiz-card h3,
+    .result-card h3,
+    .identity-board h3 {
+      color: var(--primary-strong);
+      margin-bottom: 0.5rem;
+    }
+
+    .journey-number {
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: white;
+      border: 2px solid var(--border);
+      color: var(--primary-strong);
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid var(--border);
+      color: var(--primary-strong);
+      font-weight: 700;
+      margin-top: 0.7rem;
+    }
+
+    .package-meta {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.8rem;
+    }
+
+    .package-meta span {
+      padding: 0.45rem 0.7rem;
+      border-radius: 999px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--primary-strong);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .quiz-card .btn {
+      margin-top: 1rem;
+    }
+
+    .cta-box {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(180deg, #fff, #fff5fb);
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 0 2rem;
+      text-align: center;
+      color: var(--muted);
+      background: rgba(255,255,255,0.45);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .stats-grid,
+      .lab-grid,
+      .journey-grid,
+      .packages-grid,
+      .quiz-grid,
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-art {
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#">
+        <span class="brand-badge">🧪</span>
+        <span>Identity Lab</span>
+      </a>
+      <div class="nav-links">
+        <a href="#">Overview</a>
+        <a href="#">Services</a>
+        <a href="#">Journey</a>
+        <a href="#">Quizzes</a>
+        <a href="#">Start</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="bubble-label">🧪 A Magic Plum Company experience</span>
+        <h1><span class="gradient-text">Design your online self</span><br>with softness and clarity.</h1>
+        <p>
+          Identity Lab is where internet presence becomes something intentional. We help shape usernames, aesthetics,
+          tone, colours, profile visuals, and the overall feeling of how a creator or project exists online.
+        </p>
+        <p class="lab-tagline">
+          It is part creative studio, part comfort-focused identity workshop, and part playful self-discovery space.
+        </p>
+        <div class="hero-actions">
+          <a href="#" class="btn btn-primary">Build My Identity</a>
+          <a href="#" class="btn btn-secondary">See Placeholder Tools</a>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <div class="hero-art">
+          <span class="floating one">✨</span>
+          <span class="floating two">🎀</span>
+          <span class="floating three">💖</span>
+          <span class="floating four">☁️</span>
+          <span class="floating five">🌸</span>
+          <span class="floating six">⭐</span>
+
+          <div class="identity-board">
+            <div class="identity-avatar"><span></span></div>
+            <h3>Persona Preview</h3>
+            <p>Dreamy • friendly • soft-tech • expressive</p>
+            <div class="identity-swatches">
+              <span class="swatch one"></span>
+              <span class="swatch two"></span>
+              <span class="swatch three"></span>
+              <span class="swatch four"></span>
+            </div>
+            <a href="#" class="mini-link">Placeholder Profile Kit</a>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat">
+              <strong id="stat-identities">0</strong>
+              <span>identity concepts</span>
+            </div>
+            <div class="stat">
+              <strong id="stat-vibes">0</strong>
+              <span>vibe systems</span>
+            </div>
+            <div class="stat">
+              <strong id="stat-kits">0</strong>
+              <span>profile kits</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <h2>What Identity Lab does</h2>
+        <p>
+          This page is for people who do not just want graphics. They want a clearer sense of how their project,
+          persona, or creator brand should feel across the internet.
+        </p>
+      </div>
+
+      <div class="lab-grid">
+        <article class="lab-card">
+          <div class="icon">🎨</div>
+          <h3>Aesthetic Direction</h3>
+          <p>We shape colours, moods, references, and visual energy so your online presence feels consistent and intentional.</p>
+          <span class="pill">Soft palettes</span>
+        </article>
+        <article class="lab-card">
+          <div class="icon">🪪</div>
+          <h3>Persona Building</h3>
+          <p>From usernames to profile tone, we help define what your identity feels like instead of leaving it vague.</p>
+          <span class="pill">Online self</span>
+        </article>
+        <article class="lab-card">
+          <div class="icon">💻</div>
+          <h3>Presence Systems</h3>
+          <p>Profiles, banners, mini-sites, bios, and social styling all built to work together as one internet identity.</p>
+          <span class="pill">Unified vibe</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <h2>The Identity Lab journey</h2>
+        <p>
+          A simple flow for taking a rough idea of yourself online and turning it into something polished, personal, and easy to use.
+        </p>
+      </div>
+
+      <div class="journey-grid">
+        <article class="journey-step">
+          <div class="journey-number">1</div>
+          <h3>Discover</h3>
+          <p>Start with your mood, references, goals, favourite colours, communities, and how you want people to feel when they see you.</p>
+        </article>
+        <article class="journey-step">
+          <div class="journey-number">2</div>
+          <h3>Define</h3>
+          <p>Turn all of that into a clear identity direction with names, keywords, palette ideas, tone, and presentation rules.</p>
+        </article>
+        <article class="journey-step">
+          <div class="journey-number">3</div>
+          <h3>Build</h3>
+          <p>Apply the identity across profile visuals, small websites, launch graphics, and creator assets so it feels real online.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <h2>Identity packages</h2>
+        <p>
+          These can be real services later, but for now they help show what this branch could actually offer.
+        </p>
+      </div>
+
+      <div class="packages-grid">
+        <article class="package-card">
+          <div class="icon">🍓</div>
+          <h3>Starter Persona Kit</h3>
+          <p>A lightweight identity setup with mood keywords, colour direction, profile tone ideas, and aesthetic references.</p>
+          <div class="package-meta">
+            <span>Keywords</span>
+            <span>Palette</span>
+            <span>Tone</span>
+          </div>
+        </article>
+        <article class="package-card">
+          <div class="icon">🌙</div>
+          <h3>Profile Glow-Up Set</h3>
+          <p>A creator-focused upgrade for profile pictures, banners, bio wording, and overall visual consistency across platforms.</p>
+          <div class="package-meta">
+            <span>Banner</span>
+            <span>Bio</span>
+            <span>Presence</span>
+          </div>
+        </article>
+        <article class="package-card">
+          <div class="icon">🧁</div>
+          <h3>Full Identity System</h3>
+          <p>A complete online identity concept with naming options, aesthetic direction, visual assets, and a mini landing page idea.</p>
+          <div class="package-meta">
+            <span>Name</span>
+            <span>Assets</span>
+            <span>Mini Site</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <h2>Quizzes and soft discovery tools</h2>
+        <p>
+          Identity Lab can also use playful little tools to help visitors learn more about themselves and what kind of vibe fits them best.
+        </p>
+      </div>
+
+      <div class="quiz-grid">
+        <article class="quiz-card">
+          <div class="icon">💫</div>
+          <h3>What is your internet aura?</h3>
+          <p>A quiz that matches people to their online energy, mood, and presentation style.</p>
+          <a href="#" class="btn btn-secondary">Placeholder Quiz</a>
+        </article>
+        <article class="quiz-card">
+          <div class="icon">🎀</div>
+          <h3>Which profile style suits you?</h3>
+          <p>A playful tool for discovering whether your presence should feel dreamy, cozy, elegant, bright, or chaotic.</p>
+          <a href="#" class="btn btn-secondary">Placeholder Quiz</a>
+        </article>
+        <article class="quiz-card">
+          <div class="icon">🌸</div>
+          <h3>Find your palette</h3>
+          <p>A soft identity tool that suggests colours and aesthetic references based on personality and creative goals.</p>
+          <a href="#" class="btn btn-secondary">Placeholder Quiz</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <h2>Example identity results</h2>
+        <p>
+          These sample result cards help visitors understand what an identity concept might actually look like.
+        </p>
+      </div>
+
+      <div class="results-grid">
+        <article class="result-card">
+          <div class="icon">☁️</div>
+          <h3>Soft Dreamer</h3>
+          <p>Pastel colours, gentle language, cute visuals, and a calm welcoming creator vibe.</p>
+          <span class="pill">Dreamy</span>
+        </article>
+        <article class="result-card">
+          <div class="icon">⚡</div>
+          <h3>Bright Spark</h3>
+          <p>Energetic identity direction for creators who want something playful, loud, and extra expressive.</p>
+          <span class="pill">Vibrant</span>
+        </article>
+        <article class="result-card">
+          <div class="icon">🌙</div>
+          <h3>Velvet Night</h3>
+          <p>A smoother aesthetic with elegant colours, curated visuals, and a more mysterious internet presence.</p>
+          <span class="pill">Elegant</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="cta-box">
+        <h2>Start building your online identity</h2>
+        <p>
+          Identity Lab is for creators, small brands, communities, and internet-first people who want to feel more real,
+          more consistent, and more like themselves online.
+        </p>
+        <div class="hero-actions" style="justify-content:center;">
+          <a href="#" class="btn btn-primary">Begin Placeholder Intake</a>
+          <a href="#" class="btn btn-secondary">Back to Placeholder Home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div>© <span id="year"></span> Magic Plum Company — Identity Lab</div>
+      <div class="footer-links">
+        <a href="#">Placeholder Link</a>
+        <a href="#">Placeholder Link</a>
+        <a href="#">Placeholder Link</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const stats = [
+      { id: 'stat-identities', value: 24, suffix: '+' },
+      { id: 'stat-vibes', value: 12, suffix: '' },
+      { id: 'stat-kits', value: 9, suffix: '' }
+    ];
+
+    function animateCount(element, target, suffix = '') {
+      let current = 0;
+      const duration = 1200;
+      const stepTime = 20;
+      const steps = duration / stepTime;
+      const increment = target / steps;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        element.textContent = Math.round(current) + suffix;
+      }, stepTime);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('year').textContent = new Date().getFullYear();
+      stats.forEach(stat => {
+        const el = document.getElementById(stat.id);
+        if (el) animateCount(el, stat.value, stat.suffix);
+      });
+    });
+  </script>
+</body>
+</html>
