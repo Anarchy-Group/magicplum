@@ -1,3 +1,720 @@
-<h1>Magic Plum Company</h1>
-<h2>Magic Plums are cool!!!</h2>
-This is a test page for the <i>coming soon</i> <b>magic plum company website</b>!
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magic Plum Company</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fff8fd;
+      --bg-soft: #fff0f8;
+      --surface: #ffffff;
+      --surface-2: #fff6fb;
+      --text: #6b4b67;
+      --muted: #9b7f98;
+      --primary: #ff74ba;
+      --primary-strong: #ff4ea6;
+      --lavender: #d8c4ff;
+      --mint: #ccf5e7;
+      --peach: #ffe1cc;
+      --lemon: #fff4b8;
+      --border: #ffd8eb;
+      --shadow: 0 12px 30px rgba(255, 116, 186, 0.14);
+      --radius: 22px;
+      --max-width: 1080px;
+    }
+
+```
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 8% 10%, rgba(255, 205, 233, 0.9), transparent 16%),
+    radial-gradient(circle at 90% 8%, rgba(216, 196, 255, 0.8), transparent 15%),
+    radial-gradient(circle at 82% 75%, rgba(204, 245, 231, 0.8), transparent 16%),
+    linear-gradient(180deg, #fffaff 0%, #fff3fa 100%);
+  line-height: 1.65;
+}
+
+.container {
+  width: min(calc(100% - 2rem), var(--max-width));
+  margin: 0 auto;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 248, 253, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  color: var(--primary-strong);
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.brand-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #ffd1ea, #e2d2ff, #d7fff2);
+  border: 2px solid #fff;
+  box-shadow: var(--shadow);
+  font-size: 1.2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  padding: 0.65rem 0.95rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid var(--border);
+  font-weight: 700;
+}
+
+.hero {
+  padding: 4rem 0 3rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.bubble-label {
+  display: inline-block;
+  background: #fff;
+  border: 2px solid var(--border);
+  color: var(--primary-strong);
+  border-radius: 999px;
+  padding: 0.55rem 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem;
+}
+
+h1, h2, h3 {
+  margin-top: 0;
+  font-family: 'Fredoka', sans-serif;
+  line-height: 1.08;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4.6rem);
+  margin-bottom: 1rem;
+  color: var(--primary-strong);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #ff63b1, #b88dff 55%, #ff94cb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-copy p,
+.section-head p,
+.card p,
+.contact-box p,
+.feature-list li,
+.stat span,
+.project-card p {
+  color: var(--muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.4rem;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.9rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 700;
+  border: 2px solid var(--border);
+  transition: transform 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+  color: white;
+  border-color: transparent;
+  box-shadow: var(--shadow);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--primary-strong);
+}
+
+.card,
+.hero-panel,
+.panel,
+.contact-box {
+  background: rgba(255,255,255,0.9);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.hero-panel {
+  padding: 1rem;
+  background: linear-gradient(180deg, #fffdfd, #fff6fb);
+}
+
+.hero-art {
+  border-radius: 20px;
+  border: 2px dashed #ffc8e4;
+  background:
+    radial-gradient(circle at 25% 25%, rgba(255,255,255,0.95), transparent 14%),
+    radial-gradient(circle at 74% 24%, rgba(255, 220, 240, 0.95), transparent 15%),
+    radial-gradient(circle at 20% 80%, rgba(216, 196, 255, 0.65), transparent 17%),
+    linear-gradient(180deg, #fff9fd 0%, #fff0f8 100%);
+  padding: 1.2rem;
+  min-height: 430px;
+  position: relative;
+  overflow: hidden;
+}
+
+.floating {
+  position: absolute;
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
+
+.floating.one { top: 18px; left: 22px; }
+.floating.two { top: 28px; right: 22px; }
+.floating.three { bottom: 24px; left: 26px; }
+.floating.four { bottom: 24px; right: 28px; }
+.floating.five { top: 45%; left: 12px; }
+.floating.six { top: 48%; right: 12px; }
+
+.mascot-card {
+  width: min(100%, 310px);
+  margin: 1.2rem auto;
+  background: rgba(255,255,255,0.94);
+  border: 2px solid var(--border);
+  border-radius: 26px;
+  text-align: center;
+  padding: 1rem;
+}
+
+.mascot-face {
+  width: 170px;
+  height: 170px;
+  margin: 0 auto 0.9rem;
+  border-radius: 50%;
+  position: relative;
+  background: linear-gradient(180deg, #ffe5f3 0%, #ffd6eb 100%);
+  border: 2px solid #ffc2df;
+}
+
+.ear {
+  position: absolute;
+  top: -18px;
+  width: 48px;
+  height: 66px;
+  background: linear-gradient(180deg, #ffe5f3 0%, #ffd9ee 100%);
+  border: 2px solid #ffc2df;
+  border-radius: 40px 40px 18px 18px;
+}
+
+.ear.left { left: 26px; transform: rotate(-15deg); }
+.ear.right { right: 26px; transform: rotate(15deg); }
+
+.eye {
+  position: absolute;
+  top: 72px;
+  width: 20px;
+  height: 28px;
+  border-radius: 50%;
+  background: #775c83;
+}
+
+.eye.left { left: 52px; }
+.eye.right { right: 52px; }
+
+.eye::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  top: 5px;
+  left: 4px;
+}
+
+.blush {
+  position: absolute;
+  top: 98px;
+  width: 24px;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255, 129, 183, 0.4);
+}
+
+.blush.left { left: 24px; }
+.blush.right { right: 24px; }
+
+.mouth {
+  position: absolute;
+  left: 50%;
+  top: 108px;
+  width: 24px;
+  height: 14px;
+  transform: translateX(-50%);
+  border-bottom: 3px solid #775c83;
+  border-radius: 0 0 16px 16px;
+}
+
+.mascot-card h3 {
+  margin-bottom: 0.4rem;
+  color: var(--primary-strong);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.stat {
+  padding: 0.9rem;
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: 18px;
+  text-align: center;
+}
+
+.stat strong {
+  display: block;
+  color: var(--primary-strong);
+  font-size: 1.4rem;
+  font-family: 'Fredoka', sans-serif;
+}
+
+section {
+  padding: 1rem 0 3rem;
+}
+
+.section-head {
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.section-head h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--primary-strong);
+  margin-bottom: 0.6rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.card {
+  padding: 1.25rem;
+  background: linear-gradient(180deg, #fff, #fff6fb);
+}
+
+.icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #ffd9ec, #e5d8ff, #dafbee);
+  border: 2px solid #fff;
+  box-shadow: var(--shadow);
+  font-size: 1.4rem;
+  margin-bottom: 0.9rem;
+}
+
+.card h3 {
+  color: var(--primary-strong);
+  margin-bottom: 0.5rem;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 1rem;
+}
+
+.panel {
+  padding: 1.25rem;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.feature-list li {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 0.85rem 1rem;
+  font-weight: 600;
+}
+
+.project-list {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.project-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1rem;
+}
+
+.project-card strong {
+  display: block;
+  color: var(--primary-strong);
+  margin-bottom: 0.25rem;
+  font-family: 'Fredoka', sans-serif;
+}
+
+.pill {
+  white-space: nowrap;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: white;
+  border: 1px solid var(--border);
+  color: var(--primary-strong);
+  font-weight: 700;
+}
+
+.contact-box {
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, #fff, #fff5fb);
+}
+
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 0 2rem;
+  text-align: center;
+  color: var(--muted);
+  background: rgba(255,255,255,0.45);
+}
+
+@media (max-width: 920px) {
+  .hero-grid,
+  .cards,
+  .split,
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-art {
+    min-height: auto;
+  }
+}
+```
+
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">
+        <span class="brand-badge">🍑</span>
+        <span>Magic Plum Company</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Cute Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero container" id="top">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="bubble-label">🎀 Extremely kawaii division page</span>
+        <h1><span class="gradient-text">Cute, dreamy,</span><br>and full of plum magic.</h1>
+        <p>
+          Magic Plum Company is a sweet little creative division with a soft pastel identity, adorable presentation,
+          and a playful brand style that feels warm, bubbly, and memorable.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Start Something Cute</a>
+          <a href="#projects" class="btn btn-secondary">See Projects</a>
+        </div>
+      </div>
+
+```
+  <div class="hero-panel">
+    <div class="hero-art">
+      <span class="floating one">✨</span>
+      <span class="floating two">🎀</span>
+      <span class="floating three">💖</span>
+      <span class="floating four">☁️</span>
+      <span class="floating five">🌸</span>
+      <span class="floating six">⭐</span>
+
+      <div class="mascot-card">
+        <div class="mascot-face">
+          <span class="ear left"></span>
+          <span class="ear right"></span>
+          <span class="eye left"></span>
+          <span class="eye right"></span>
+          <span class="blush left"></span>
+          <span class="blush right"></span>
+          <span class="mouth"></span>
+        </div>
+        <h3>Plum-chan welcomes you!</h3>
+        <p>Soft colours, sweet branding, and adorable design all in one cozy little homepage.</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat">
+          <strong id="stat-projects">0</strong>
+          <span>cute launches</span>
+        </div>
+        <div class="stat">
+          <strong id="stat-reach">0</strong>
+          <span>happy growth</span>
+        </div>
+        <div class="stat">
+          <strong id="stat-brands">0</strong>
+          <span>sweet brands</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <h2>Made to feel adorable</h2>
+        <p>
+          This redesign pushes the site much further into a pastel kawaii style with bubbly shapes, mascot energy,
+          sweet colours, rounded panels, and a softer overall tone.
+        </p>
+      </div>
+
+```
+  <div class="cards">
+    <article class="card">
+      <div class="icon">🎨</div>
+      <h3>Sweet Branding</h3>
+      <p>Create soft visual identities with friendly colours, cute styling, and strong personality.</p>
+    </article>
+    <article class="card">
+      <div class="icon">🧁</div>
+      <h3>Dreamy Campaigns</h3>
+      <p>Design launches and creative packs that feel playful, polished, and extra lovable.</p>
+    </article>
+    <article class="card">
+      <div class="icon">💻</div>
+      <h3>Kawaii Web Design</h3>
+      <p>Build pastel websites with soft layouts, rounded UI, and a warm welcoming look.</p>
+    </article>
+  </div>
+</div>
+```
+
+  </section>
+
+  <section id="services">
+    <div class="container split">
+      <div class="panel">
+        <div class="section-head" style="text-align:left; margin-bottom:0;">
+          <h2>Cute little specialties</h2>
+          <p>Everything is designed to feel sweet, polished, and super expressive.</p>
+        </div>
+        <ul class="feature-list">
+          <li>🎀 Pastel landing pages</li>
+          <li>💖 Soft brand identity design</li>
+          <li>✨ Cute promotional visuals</li>
+          <li>🌸 Creator and media styling</li>
+          <li>☁️ Friendly, welcoming web layouts</li>
+        </ul>
+      </div>
+
+```
+  <div class="panel" id="projects">
+    <div class="section-head" style="text-align:left; margin-bottom:0;">
+      <h2>Featured projects</h2>
+      <p>Sample projects you can replace with your real work later.</p>
+    </div>
+    <div class="project-list" id="project-list"></div>
+  </div>
+</div>
+```
+
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <h2>Let’s build something adorable</h2>
+        <p>
+          This version is much more kawaii, pastel, and playful while still staying as a single easy-to-use HTML file.
+        </p>
+        <div class="hero-actions" style="justify-content:center;">
+          <a class="btn btn-primary" href="mailto:hello@magicplum.company">hello@magicplum.company</a>
+          <a class="btn btn-secondary" href="#top">Back to Top</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      © <span id="year"></span> Magic Plum Company
+    </div>
+  </footer>
+
+  <script>
+    const stats = [
+      { id: 'stat-projects', value: 18, suffix: '+' },
+      { id: 'stat-reach', value: 240, suffix: '%' },
+      { id: 'stat-brands', value: 32, suffix: '' }
+    ];
+
+    const featuredProjects = [
+      {
+        title: 'Plum-chan Landing Page',
+        description: 'A dreamy homepage concept with a super soft pastel look.',
+        tag: 'Website'
+      },
+      {
+        title: 'Candy Cloud Launch Pack',
+        description: 'A cute promotional set for introducing a playful online project.',
+        tag: 'Launch'
+      },
+      {
+        title: 'Starberry Brand Kit',
+        description: 'A sweet visual identity package for a cheerful creative brand.',
+        tag: 'Branding'
+      }
+    ];
+
+    function animateCount(element, target, suffix = '') {
+      let current = 0;
+      const duration = 1200;
+      const stepTime = 20;
+      const steps = duration / stepTime;
+      const increment = target / steps;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        element.textContent = Math.round(current) + suffix;
+      }, stepTime);
+    }
+
+    function renderProjects() {
+      const list = document.getElementById('project-list');
+      if (!list) return;
+
+      featuredProjects.forEach(project => {
+        const item = document.createElement('div');
+        item.className = 'project-card';
+        item.innerHTML = `
+          <div>
+            <strong>${project.title}</strong>
+            <p>${project.description}</p>
+          </div>
+          <span class="pill">${project.tag}</span>
+        `;
+        list.appendChild(item);
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('year').textContent = new Date().getFullYear();
+      renderProjects();
+
+      stats.forEach(stat => {
+        const el = document.getElementById(stat.id);
+        if (el) animateCount(el, stat.value, stat.suffix);
+      });
+    });
+  </script>
+
+</body>
+</html>
