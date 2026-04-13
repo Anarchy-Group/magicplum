@@ -30,7 +30,6 @@
 
 ```
 * { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -96,7 +95,8 @@ body {
   flex-wrap: wrap;
 }
 
-.nav-links a {
+.nav-links a,
+.footer a {
   text-decoration: none;
   color: var(--text);
   padding: 0.65rem 0.95rem;
@@ -142,6 +142,12 @@ h1 {
   color: var(--primary-strong);
 }
 
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--primary-strong);
+  margin-bottom: 0.6rem;
+}
+
 .gradient-text {
   background: linear-gradient(135deg, #ff63b1, #b88dff 55%, #ff94cb);
   -webkit-background-clip: text;
@@ -155,7 +161,10 @@ h1 {
 .contact-box p,
 .feature-list li,
 .stat span,
-.project-card p {
+.project-card p,
+.pillars p,
+.quiz-card p,
+.audience-card p {
   color: var(--muted);
 }
 
@@ -176,7 +185,9 @@ h1 {
   transition: transform 0.15s ease;
 }
 
-.btn:hover {
+.btn:hover,
+.nav-links a:hover,
+.footer a:hover {
   transform: translateY(-2px);
 }
 
@@ -195,7 +206,10 @@ h1 {
 .card,
 .hero-panel,
 .panel,
-.contact-box {
+.contact-box,
+.quiz-card,
+.audience-card,
+.pillar {
   background: rgba(255,255,255,0.9);
   border: 2px solid var(--border);
   border-radius: var(--radius);
@@ -313,8 +327,12 @@ h1 {
   border-radius: 0 0 16px 16px;
 }
 
-.mascot-card h3 {
-  margin-bottom: 0.4rem;
+.mascot-card h3,
+.card h3,
+.pillar h3,
+.quiz-card h3,
+.audience-card h3,
+.project-card strong {
   color: var(--primary-strong);
 }
 
@@ -349,19 +367,19 @@ section {
   text-align: center;
 }
 
-.section-head h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  color: var(--primary-strong);
-  margin-bottom: 0.6rem;
-}
-
-.cards {
+.cards,
+.pillars,
+.quiz-grid,
+.audience-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
 
-.card {
+.card,
+.pillar,
+.quiz-card,
+.audience-card {
   padding: 1.25rem;
   background: linear-gradient(180deg, #fff, #fff6fb);
 }
@@ -377,11 +395,6 @@ section {
   box-shadow: var(--shadow);
   font-size: 1.4rem;
   margin-bottom: 0.9rem;
-}
-
-.card h3 {
-  color: var(--primary-strong);
-  margin-bottom: 0.5rem;
 }
 
 .split {
@@ -427,13 +440,6 @@ section {
   padding: 1rem;
 }
 
-.project-card strong {
-  display: block;
-  color: var(--primary-strong);
-  margin-bottom: 0.25rem;
-  font-family: 'Fredoka', sans-serif;
-}
-
 .pill {
   white-space: nowrap;
   padding: 0.45rem 0.75rem;
@@ -458,11 +464,22 @@ section {
   background: rgba(255,255,255,0.45);
 }
 
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
 @media (max-width: 920px) {
   .hero-grid,
   .cards,
   .split,
-  .stats-grid {
+  .stats-grid,
+  .pillars,
+  .quiz-grid,
+  .audience-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -489,31 +506,32 @@ section {
 <body>
   <nav class="nav">
     <div class="container nav-inner">
-      <a class="brand" href="#top">
+      <a class="brand" href="#">
         <span class="brand-badge">🍑</span>
         <span>Magic Plum Company</span>
       </a>
       <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#services">Cute Services</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Identity Lab</a>
+        <a href="#">Quizzes</a>
+        <a href="#">Contact</a>
       </div>
     </div>
   </nav>
 
-  <header class="hero container" id="top">
+  <header class="hero container">
     <div class="hero-grid">
       <div class="hero-copy">
-        <span class="bubble-label">🎀 Extremely kawaii division page</span>
-        <h1><span class="gradient-text">Cute, dreamy,</span><br>and full of plum magic.</h1>
+        <span class="bubble-label">🎀 A soft-tech branch of Femboy Media Corporation</span>
+        <h1><span class="gradient-text">Comfort, identity,</span><br>and creator support online.</h1>
         <p>
-          Magic Plum Company is a sweet little creative division with a soft pastel identity, adorable presentation,
-          and a playful brand style that feels warm, bubbly, and memorable.
+          Magic Plum Company is a digital comfort studio and identity-focused creative branch built for people who want
+          the internet to feel softer, safer, more expressive, and more personal.
         </p>
         <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Start Something Cute</a>
-          <a href="#projects" class="btn btn-secondary">See Projects</a>
+          <a href="#" class="btn btn-primary">Start Your Glow-Up</a>
+          <a href="#" class="btn btn-secondary">Explore Our World</a>
         </div>
       </div>
 
@@ -538,21 +556,21 @@ section {
           <span class="mouth"></span>
         </div>
         <h3>Plum-chan welcomes you!</h3>
-        <p>Soft colours, sweet branding, and adorable design all in one cozy little homepage.</p>
+        <p>We make digital spaces feel cute, calm, expressive, and full of personality.</p>
       </div>
 
       <div class="stats-grid">
         <div class="stat">
           <strong id="stat-projects">0</strong>
-          <span>cute launches</span>
+          <span>cozy projects</span>
         </div>
         <div class="stat">
           <strong id="stat-reach">0</strong>
-          <span>happy growth</span>
+          <span>creator glow-ups</span>
         </div>
         <div class="stat">
           <strong id="stat-brands">0</strong>
-          <span>sweet brands</span>
+          <span>identity systems</span>
         </div>
       </div>
     </div>
@@ -562,32 +580,32 @@ section {
 
   </header>
 
-  <section id="about">
+  <section>
     <div class="container">
       <div class="section-head">
-        <h2>Made to feel adorable</h2>
+        <h2>What Magic Plum Company is</h2>
         <p>
-          This redesign pushes the site much further into a pastel kawaii style with bubbly shapes, mascot energy,
-          sweet colours, rounded panels, and a softer overall tone.
+          More than media, Magic Plum Company focuses on digital comfort, internet identity, creator support, and playful tools
+          that help people figure out how they want to exist online.
         </p>
       </div>
 
 ```
-  <div class="cards">
-    <article class="card">
-      <div class="icon">🎨</div>
-      <h3>Sweet Branding</h3>
-      <p>Create soft visual identities with friendly colours, cute styling, and strong personality.</p>
+  <div class="pillars">
+    <article class="pillar">
+      <div class="icon">☁️</div>
+      <h3>Digital Comfort Services</h3>
+      <p>Soft, welcoming websites and online spaces designed to feel calm, expressive, and safe to exist in.</p>
     </article>
-    <article class="card">
-      <div class="icon">🧁</div>
-      <h3>Dreamy Campaigns</h3>
-      <p>Design launches and creative packs that feel playful, polished, and extra lovable.</p>
+    <article class="pillar">
+      <div class="icon">🧪</div>
+      <h3>Internet Identity Lab</h3>
+      <p>Creative identity systems for usernames, aesthetics, profiles, tone, colours, and overall online presence.</p>
     </article>
-    <article class="card">
-      <div class="icon">💻</div>
-      <h3>Kawaii Web Design</h3>
-      <p>Build pastel websites with soft layouts, rounded UI, and a warm welcoming look.</p>
+    <article class="pillar">
+      <div class="icon">🎀</div>
+      <h3>Creator Support</h3>
+      <p>Friendly help for new and growing creators who want to start online without the usual pressure and confusion.</p>
     </article>
   </div>
 </div>
@@ -595,27 +613,94 @@ section {
 
   </section>
 
-  <section id="services">
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <h2>Our soft little specialties</h2>
+        <p>
+          Every part of the brand is built around making online expression easier, cuter, and much more human.
+        </p>
+      </div>
+
+```
+  <div class="cards">
+    <article class="card">
+      <div class="icon">🌸</div>
+      <h3>Soft Space Design</h3>
+      <p>Comfort-first layouts for community pages, project sites, landing pages, and soft digital homes.</p>
+    </article>
+    <article class="card">
+      <div class="icon">💖</div>
+      <h3>Persona Building</h3>
+      <p>Support for building a clear internet vibe through naming, visuals, style language, and overall identity.</p>
+    </article>
+    <article class="card">
+      <div class="icon">✨</div>
+      <h3>Online Glow-Ups</h3>
+      <p>Transformation-focused creative work that helps small brands and creators feel polished and real.</p>
+    </article>
+  </div>
+</div>
+```
+
+  </section>
+
+  <section>
     <div class="container split">
       <div class="panel">
         <div class="section-head" style="text-align:left; margin-bottom:0;">
-          <h2>Cute little specialties</h2>
-          <p>Everything is designed to feel sweet, polished, and super expressive.</p>
+          <h2>Digital Comfort Services</h2>
+          <p>Designing digital places that feel gentle, low-stress, and welcoming from the moment someone arrives.</p>
         </div>
         <ul class="feature-list">
-          <li>🎀 Pastel landing pages</li>
-          <li>💖 Soft brand identity design</li>
-          <li>✨ Cute promotional visuals</li>
-          <li>🌸 Creator and media styling</li>
-          <li>☁️ Friendly, welcoming web layouts</li>
+          <li>☁️ Cozy websites that feel like a safe place</li>
+          <li>🌈 LGBTQ+ friendly visuals and community-first design</li>
+          <li>💌 Soft landing pages for projects, brands, and online spaces</li>
+          <li>🧸 Calm, readable layouts without harsh or intimidating structure</li>
+          <li>🌸 Digital environments designed around comfort and self-expression</li>
+        </ul>
+      </div>
+
+```
+  <div class="panel">
+    <div class="section-head" style="text-align:left; margin-bottom:0;">
+      <h2>Internet Identity Lab</h2>
+      <p>A creative lab for figuring out how a person, project, or creator should feel across the internet.</p>
+    </div>
+    <ul class="feature-list">
+      <li>🧪 Username and identity concept development</li>
+      <li>🎨 Aesthetic direction with colour palettes and visual tone</li>
+      <li>📱 Profile, banner, and online presence styling</li>
+      <li>💭 Personality systems for tone, emojis, language, and vibe</li>
+      <li>🍑 Full identity kits for being seen clearly online</li>
+    </ul>
+  </div>
+</div>
+```
+
+  </section>
+
+  <section>
+    <div class="container split">
+      <div class="panel">
+        <div class="section-head" style="text-align:left; margin-bottom:0;">
+          <h2>Creator Support</h2>
+          <p>Perfect for people who are just starting out and want supportive creative help without being overwhelmed.</p>
+        </div>
+        <ul class="feature-list">
+          <li>🎀 Starter kits for new creators and online personalities</li>
+          <li>📷 Simple branding help for streamers, artists, and content creators</li>
+          <li>💻 Easy one-page websites that make projects look real</li>
+          <li>🌟 Profile graphics, banners, and launch visuals</li>
+          <li>🫶 Friendly support for finding your own style online</li>
         </ul>
       </div>
 
 ```
   <div class="panel" id="projects">
     <div class="section-head" style="text-align:left; margin-bottom:0;">
-      <h2>Featured projects</h2>
-      <p>Sample projects you can replace with your real work later.</p>
+      <h2>Featured project ideas</h2>
+      <p>These sample concepts show how Magic Plum Company can feel different from a normal media division.</p>
     </div>
     <div class="project-list" id="project-list"></div>
   </div>
@@ -624,16 +709,84 @@ section {
 
   </section>
 
-  <section id="contact">
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <h2>Quizzes and playful tools</h2>
+        <p>
+          Little interactive ideas that help visitors explore their style, discover their vibe, and feel closer to the brand.
+        </p>
+      </div>
+
+```
+  <div class="quiz-grid">
+    <article class="quiz-card">
+      <div class="icon">🧁</div>
+      <h3>What’s your internet aesthetic?</h3>
+      <p>A fun quiz that matches people to colours, moods, and visual styles that fit their online self.</p>
+      <a href="#" class="btn btn-secondary">Try Placeholder</a>
+    </article>
+    <article class="quiz-card">
+      <div class="icon">💫</div>
+      <h3>What kind of creator are you?</h3>
+      <p>A soft personality-style quiz for creators, streamers, artists, and online communities.</p>
+      <a href="#" class="btn btn-secondary">Try Placeholder</a>
+    </article>
+    <article class="quiz-card">
+      <div class="icon">🍬</div>
+      <h3>Find your project vibe</h3>
+      <p>A playful way to discover whether a project should feel dreamy, cozy, bright, chaotic, or elegant.</p>
+      <a href="#" class="btn btn-secondary">Try Placeholder</a>
+    </article>
+  </div>
+</div>
+```
+
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <h2>Who this is for</h2>
+        <p>
+          Magic Plum Company is built for internet-first people, small creative worlds, and anyone trying to become more themselves online.
+        </p>
+      </div>
+
+```
+  <div class="audience-grid">
+    <article class="audience-card">
+      <div class="icon">🎥</div>
+      <h3>Creators</h3>
+      <p>People building channels, brands, projects, or online personas that need soft but memorable presentation.</p>
+    </article>
+    <article class="audience-card">
+      <div class="icon">🌈</div>
+      <h3>Communities</h3>
+      <p>LGBTQ+ groups, fandom spaces, and online communities that want welcoming and expressive digital spaces.</p>
+    </article>
+    <article class="audience-card">
+      <div class="icon">🪄</div>
+      <h3>Small Brands</h3>
+      <p>Projects and startups with personality that want an identity which feels more human than corporate.</p>
+    </article>
+  </div>
+</div>
+```
+
+  </section>
+
+  <section>
     <div class="container">
       <div class="contact-box">
-        <h2>Let’s build something adorable</h2>
+        <h2>Start your digital glow-up</h2>
         <p>
-          This version is much more kawaii, pastel, and playful while still staying as a single easy-to-use HTML file.
+          Whether you need a softer website, help building your online identity, creator support, or playful quiz ideas,
+          Magic Plum Company is here to make the internet feel more like you.
         </p>
         <div class="hero-actions" style="justify-content:center;">
-          <a class="btn btn-primary" href="mailto:hello@magicplum.company">hello@magicplum.company</a>
-          <a class="btn btn-secondary" href="#top">Back to Top</a>
+          <a class="btn btn-primary" href="#">Start a Project</a>
+          <a class="btn btn-secondary" href="#">Contact Placeholder</a>
         </div>
       </div>
     </div>
@@ -641,32 +794,37 @@ section {
 
   <footer class="footer">
     <div class="container">
-      © <span id="year"></span> Magic Plum Company
+      <div>© <span id="year"></span> Magic Plum Company</div>
+      <div class="footer-links">
+        <a href="#">Placeholder Link</a>
+        <a href="#">Placeholder Link</a>
+        <a href="#">Placeholder Link</a>
+      </div>
     </div>
   </footer>
 
   <script>
     const stats = [
       { id: 'stat-projects', value: 18, suffix: '+' },
-      { id: 'stat-reach', value: 240, suffix: '%' },
+      { id: 'stat-reach', value: 240, suffix: '+' },
       { id: 'stat-brands', value: 32, suffix: '' }
     ];
 
     const featuredProjects = [
       {
-        title: 'Plum-chan Landing Page',
-        description: 'A dreamy homepage concept with a super soft pastel look.',
-        tag: 'Website'
+        title: 'Soft Space Starter Kit',
+        description: 'A cozy digital comfort package for communities and safe-space focused online projects.',
+        tag: 'Comfort'
       },
       {
-        title: 'Candy Cloud Launch Pack',
-        description: 'A cute promotional set for introducing a playful online project.',
-        tag: 'Launch'
+        title: 'Identity Lab Profile Set',
+        description: 'A full persona concept with colours, banners, profile styling, and online tone direction.',
+        tag: 'Identity'
       },
       {
-        title: 'Starberry Brand Kit',
-        description: 'A sweet visual identity package for a cheerful creative brand.',
-        tag: 'Branding'
+        title: 'Creator Glow-Up Page',
+        description: 'A cute one-page site for new creators who want to look polished without feeling too corporate.',
+        tag: 'Creator'
       }
     ];
 
