@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Magic Plum Company — Persona Studio</title>
+  <title>Magic Plum Company — Persona Studio Generator</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
     :root {
       --bg: #fff8fd;
       --bg-soft: #fff0f8;
-      --surface: rgba(255,255,255,0.94);
+      --surface: rgba(255,255,255,0.95);
       --surface-2: #fff6fb;
       --text: #6b4b67;
       --muted: #9b7f98;
@@ -24,7 +24,7 @@
       --border: #ffd8eb;
       --shadow: 0 12px 30px rgba(255, 116, 186, 0.14);
       --radius: 22px;
-      --max-width: 1180px;
+      --max-width: 1200px;
     }
 
     * { box-sizing: border-box; }
@@ -94,7 +94,8 @@
     .nav-links a,
     .footer-links a,
     .mini-link,
-    .tab {
+    .pill,
+    .mood-chip {
       text-decoration: none;
       color: var(--text);
       padding: 0.65rem 0.95rem;
@@ -102,19 +103,9 @@
       background: rgba(255,255,255,0.92);
       border: 1px solid var(--border);
       font-weight: 700;
-      transition: transform 0.15s ease;
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      cursor: pointer;
-    }
-
-    .nav-links a:hover,
-    .footer-links a:hover,
-    .mini-link:hover,
-    .tab:hover,
-    .btn:hover {
-      transform: translateY(-2px);
+      gap: 0.35rem;
     }
 
     .hero {
@@ -166,35 +157,23 @@
       color: transparent;
     }
 
-    p,
-    .hero-copy p,
-    .section-head p,
-    .panel p,
-    .builder-card p,
-    .preview-card p,
-    .package-card p,
-    .footer,
-    label,
-    .result-line,
-    .chip,
-    .tiny-note {
+    p, label, .tiny-note, .result-line, .preview-card li, .package-card p, .hero-copy p {
       color: var(--muted);
     }
 
     .hero-actions,
-    .tab-row,
-    .chip-row,
     .button-row,
     .palette-row,
-    .footer-links {
+    .footer-links,
+    .chip-row,
+    .mood-row,
+    .pill-row {
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
     }
 
-    .hero-actions {
-      margin-top: 1.4rem;
-    }
+    .hero-actions { margin-top: 1.4rem; }
 
     .btn {
       display: inline-block;
@@ -207,6 +186,15 @@
       cursor: pointer;
       font-family: inherit;
       font-size: 1rem;
+      background: white;
+      color: var(--primary-strong);
+    }
+
+    .btn:hover,
+    .nav-links a:hover,
+    .footer-links a:hover,
+    .mini-link:hover {
+      transform: translateY(-2px);
     }
 
     .btn-primary {
@@ -216,25 +204,21 @@
       box-shadow: var(--shadow);
     }
 
-    .btn-secondary {
-      background: white;
-      color: var(--primary-strong);
-    }
-
     .hero-panel,
     .panel,
-    .builder-card,
     .preview-card,
     .package-card,
-    .cta-box {
-      background: rgba(255,255,255,0.92);
+    .cta-box,
+    .mini-card {
+      background: rgba(255,255,255,0.94);
       border: 2px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
 
+    .hero-panel, .panel, .preview-card, .package-card, .mini-card { padding: 1.25rem; }
+
     .hero-panel {
-      padding: 1rem;
       background: linear-gradient(180deg, #fffdfd, #fff6fb);
     }
 
@@ -268,7 +252,7 @@
     .floating.six { top: 48%; right: 12px; }
 
     .persona-card {
-      width: min(100%, 340px);
+      width: min(100%, 360px);
       margin: 1rem auto;
       background: rgba(255,255,255,0.96);
       border: 2px solid var(--border);
@@ -278,30 +262,51 @@
     }
 
     .avatar {
-      width: 146px;
-      height: 146px;
+      width: 150px;
+      height: 150px;
       margin: 0 auto 1rem;
       border-radius: 50%;
       background: linear-gradient(180deg, #ffe5f3 0%, #ffd6eb 100%);
       border: 2px solid #ffc2df;
       position: relative;
+      overflow: hidden;
     }
 
-    .avatar::before,
-    .avatar::after {
-      content: '';
+    .hair {
       position: absolute;
-      top: 58px;
+      left: 50%;
+      top: 16px;
+      width: 96px;
+      height: 58px;
+      transform: translateX(-50%);
+      border-radius: 50px 50px 34px 34px;
+      background: #ff9ecf;
+    }
+
+    .eye {
+      position: absolute;
+      top: 70px;
       width: 18px;
-      height: 26px;
+      height: 24px;
       border-radius: 50%;
       background: #775c83;
     }
 
-    .avatar::before { left: 42px; }
-    .avatar::after { right: 42px; }
+    .eye.left { left: 44px; }
+    .eye.right { right: 44px; }
 
-    .avatar span {
+    .eye::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: white;
+      top: 4px;
+      left: 4px;
+    }
+
+    .mouth {
       position: absolute;
       left: 50%;
       bottom: 28px;
@@ -312,16 +317,25 @@
       border-radius: 0 0 14px 14px;
     }
 
+    .blush {
+      position: absolute;
+      top: 93px;
+      width: 24px;
+      height: 11px;
+      border-radius: 999px;
+      background: rgba(255, 129, 183, 0.36);
+    }
+
+    .blush.left { left: 22px; }
+    .blush.right { right: 22px; }
+
     .persona-name {
       color: var(--primary-strong);
       font-size: 1.35rem;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.2rem;
     }
 
-    .palette-row {
-      justify-content: center;
-      margin-top: 0.9rem;
-    }
+    .palette-row { justify-content: center; margin-top: 0.85rem; }
 
     .swatch {
       width: 28px;
@@ -332,17 +346,14 @@
     }
 
     .stats-grid,
-    .builder-grid,
-    .preview-grid,
-    .package-grid {
+    .package-grid,
+    .mini-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
     }
 
-    .stats-grid {
-      margin-top: 1rem;
-    }
+    .stats-grid { margin-top: 1rem; }
 
     .stat {
       padding: 0.95rem;
@@ -359,57 +370,21 @@
       font-family: 'Fredoka', sans-serif;
     }
 
-    section {
-      padding: 1rem 0 3rem;
-    }
+    section { padding: 1rem 0 3rem; }
 
     .section-head {
       text-align: center;
       margin-bottom: 1.2rem;
     }
 
-    .panel,
-    .builder-card,
-    .preview-card,
-    .package-card,
-    .cta-box {
-      padding: 1.25rem;
-      background: linear-gradient(180deg, #fff, #fff6fb);
-    }
-
-    .icon {
-      width: 58px;
-      height: 58px;
-      border-radius: 18px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, #ffd9ec, #e5d8ff, #dafbee);
-      border: 2px solid #fff;
-      box-shadow: var(--shadow);
-      font-size: 1.4rem;
-      margin-bottom: 0.9rem;
-    }
-
     .builder-layout {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
+      grid-template-columns: 1.02fr 0.98fr;
       gap: 1rem;
       align-items: start;
     }
 
-    .builder-card h3,
-    .preview-card h3,
-    .package-card h3,
-    .cta-box h2,
-    .panel h3 {
-      color: var(--primary-strong);
-      margin-bottom: 0.5rem;
-    }
-
-    .field {
-      margin-bottom: 1rem;
-    }
-
+    .field { margin-bottom: 1rem; }
     .field label {
       display: block;
       margin-bottom: 0.45rem;
@@ -430,10 +405,7 @@
       outline: none;
     }
 
-    textarea {
-      min-height: 104px;
-      resize: vertical;
-    }
+    textarea { min-height: 95px; resize: vertical; }
 
     input:focus,
     textarea:focus,
@@ -442,31 +414,18 @@
       box-shadow: 0 0 0 4px rgba(255, 116, 186, 0.12);
     }
 
-    .chip-row {
-      margin-top: 0.6rem;
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
     }
 
-    .chip {
-      padding: 0.45rem 0.8rem;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: white;
-      font-weight: 700;
-    }
-
-    .tab-row {
-      margin-bottom: 1rem;
-    }
-
-    .tab.active {
-      background: linear-gradient(135deg, #ffd9ec, #eadfff);
-      color: var(--primary-strong);
-      border-color: #f6c4df;
-    }
+    .chip-row { margin-top: 0.6rem; }
 
     .preview-card {
       position: sticky;
       top: 96px;
+      background: linear-gradient(180deg, #fff, #fff6fb);
     }
 
     .preview-banner {
@@ -504,24 +463,16 @@
       margin-bottom: 0.35rem;
     }
 
-    .result-line strong {
-      color: var(--text);
-    }
+    .mood-row,
+    .pill-row { margin-top: 0.65rem; }
 
-    .preview-grid {
-      margin-top: 1rem;
-    }
-
-    .mini-card {
-      background: white;
-      border: 2px solid var(--border);
-      border-radius: 18px;
-      padding: 1rem;
-    }
-
-    .mini-card h4 {
+    .package-card h3,
+    .mini-card h4,
+    .panel h3,
+    .preview-card h3,
+    .cta-box h2 {
       color: var(--primary-strong);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
 
     .package-meta {
@@ -544,6 +495,7 @@
     .cta-box {
       text-align: center;
       padding: 2rem;
+      background: linear-gradient(180deg, #fff, #fff5fb);
     }
 
     .footer {
@@ -553,24 +505,18 @@
       background: rgba(255,255,255,0.45);
     }
 
-    .footer-links {
-      justify-content: center;
-      margin-top: 1rem;
-    }
+    .footer-links { justify-content: center; margin-top: 1rem; }
 
     @media (max-width: 980px) {
       .hero-grid,
       .builder-layout,
-      .builder-grid,
-      .preview-grid,
       .package-grid,
-      .stats-grid {
+      .mini-grid,
+      .stats-grid,
+      .two-col {
         grid-template-columns: 1fr;
       }
-
-      .preview-card {
-        position: static;
-      }
+      .preview-card { position: static; }
     }
 
     @media (max-width: 640px) {
@@ -578,10 +524,7 @@
         flex-direction: column;
         align-items: flex-start;
       }
-
-      .hero-art {
-        min-height: auto;
-      }
+      .hero-art { min-height: auto; }
     }
   </style>
 </head>
@@ -590,11 +533,11 @@
     <div class="container nav-inner">
       <a class="brand" href="#">
         <span class="brand-badge">🎭</span>
-        <span>Persona Studio</span>
+        <span>Persona Studio Generator</span>
       </a>
       <div class="nav-links">
         <a href="#">Overview</a>
-        <a href="#">Builder</a>
+        <a href="#">Generator</a>
         <a href="#">Preview</a>
         <a href="#">Packages</a>
         <a href="#">Start</a>
@@ -605,18 +548,18 @@
   <header class="hero container">
     <div class="hero-grid">
       <div class="hero-copy">
-        <span class="bubble-label">🎀 A Magic Plum Company creation tool</span>
-        <h1><span class="gradient-text">Build a full online persona</span><br>that feels like you.</h1>
+        <span class="bubble-label">🎀 Persona generator + builder</span>
+        <h1><span class="gradient-text">Generate a whole persona</span><br>from your preferences.</h1>
         <p>
-          Persona Studio is a soft-tech page for shaping an online self from scratch. It helps turn random ideas,
-          aesthetics, colours, moods, usernames, and creator goals into one clear persona with a look, tone, and vibe.
+          This page gives you a full persona builder with an integrated generator. Pick things like aesthetic, gender vibe,
+          energy, platform style, comfort level, and creator goals, then generate a ready-made persona concept.
         </p>
         <p>
-          Use it as a concept page, an intake experience, or the start of a future interactive builder for your whole branch.
+          It creates a name, handle, mood traits, visual palette, tone, short bio, and overall identity direction you can refine after.
         </p>
         <div class="hero-actions">
-          <a href="#" class="btn btn-primary">Start Building</a>
-          <a href="#" class="btn btn-secondary">Open Placeholder Preview</a>
+          <a href="#" class="btn btn-primary">Start Generator</a>
+          <a href="#" class="btn btn-secondary">Placeholder Guide</a>
         </div>
       </div>
 
@@ -630,10 +573,17 @@
           <span class="floating six">⭐</span>
 
           <div class="persona-card">
-            <div class="avatar"><span></span></div>
+            <div class="avatar">
+              <div class="hair" id="avatarHair"></div>
+              <div class="eye left"></div>
+              <div class="eye right"></div>
+              <div class="blush left"></div>
+              <div class="blush right"></div>
+              <div class="mouth"></div>
+            </div>
             <div class="persona-name" id="heroPersonaName">Plumwave</div>
             <p id="heroPersonaMood">dreamy • kind • expressive • soft-tech</p>
-            <div class="palette-row">
+            <div class="palette-row" id="heroPalette">
               <span class="swatch" style="background:#ff9ecf"></span>
               <span class="swatch" style="background:#d8c4ff"></span>
               <span class="swatch" style="background:#ccf5e7"></span>
@@ -664,26 +614,23 @@
   <section>
     <div class="container">
       <div class="section-head">
-        <h2>What Persona Studio is for</h2>
+        <h2>How it works</h2>
         <p>
-          This page is made for creators, projects, online communities, and internet-first people who want a full persona instead of random disconnected branding.
+          Choose your preferences, click generate, and the page builds a persona concept automatically. Then you can fine-tune the result with the editable builder fields.
         </p>
       </div>
-      <div class="builder-grid">
-        <article class="builder-card">
-          <div class="icon">🪞</div>
-          <h3>Find your vibe</h3>
-          <p>Shape the emotional feel of your persona with mood words, comfort levels, style direction, and internet energy.</p>
+      <div class="mini-grid">
+        <article class="mini-card">
+          <h4>1. Pick your preferences</h4>
+          <p>Choose a gender vibe, aesthetic, platform style, mood energy, and how soft or bold you want the persona to feel.</p>
         </article>
-        <article class="builder-card">
-          <div class="icon">🎨</div>
-          <h3>Choose your look</h3>
-          <p>Build a visual system with colours, aesthetics, profile styling, and a recognizable online presentation.</p>
+        <article class="mini-card">
+          <h4>2. Generate identity</h4>
+          <p>The generator creates a persona name, handle, mood words, voice, short bio, and visual direction.</p>
         </article>
-        <article class="builder-card">
-          <div class="icon">💬</div>
-          <h3>Define your voice</h3>
-          <p>Create a tone for bios, captions, intros, profile text, and how your presence should sound across platforms.</p>
+        <article class="mini-card">
+          <h4>3. Refine and use it</h4>
+          <p>Edit the generated result and use it as the base for a profile, creator brand, or online persona page.</p>
         </article>
       </div>
     </div>
@@ -693,15 +640,90 @@
     <div class="container builder-layout">
       <div class="panel">
         <div class="section-head" style="text-align:left; margin-bottom:0.9rem;">
-          <h2>Persona builder</h2>
-          <p>Fill out the fields to generate a placeholder persona preview. This is all front-end and easy to expand later.</p>
+          <h2>Integrated persona generator</h2>
+          <p>Set your preferences here, then generate a persona and tweak it however you want.</p>
         </div>
 
-        <div class="tab-row">
-          <button class="tab active" type="button">🌸 Basics</button>
-          <button class="tab" type="button">🎨 Style</button>
-          <button class="tab" type="button">💬 Voice</button>
-          <button class="tab" type="button">✨ Extras</button>
+        <div class="two-col">
+          <div class="field">
+            <label for="prefGender">Gender vibe</label>
+            <select id="prefGender">
+              <option value="feminine">Feminine</option>
+              <option value="masculine">Masculine</option>
+              <option value="androgynous">Androgynous</option>
+              <option value="neutral">Neutral</option>
+              <option value="mixed">Mixed / fluid</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="prefAesthetic">Aesthetic</label>
+            <select id="prefAesthetic">
+              <option value="pastel-kawaii">Pastel kawaii</option>
+              <option value="soft-dreamcore">Soft dreamcore</option>
+              <option value="cute-cyber">Cute cyber</option>
+              <option value="velvet-night">Velvet night</option>
+              <option value="hyperpop-sparkle">Hyperpop sparkle</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="field">
+            <label for="prefEnergy">Energy</label>
+            <select id="prefEnergy">
+              <option value="soft">Soft</option>
+              <option value="playful">Playful</option>
+              <option value="bold">Bold</option>
+              <option value="calm">Calm</option>
+              <option value="chaotic">Chaotic</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="prefRole">Creator focus</label>
+            <select id="prefRole">
+              <option value="creator">General creator</option>
+              <option value="streamer">Streamer</option>
+              <option value="artist">Artist</option>
+              <option value="community">Community host</option>
+              <option value="editor">Editor / media creator</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="field">
+            <label for="prefComfort">Comfort level</label>
+            <select id="prefComfort">
+              <option value="cozy">Cozy</option>
+              <option value="welcoming">Welcoming</option>
+              <option value="confident">Confident</option>
+              <option value="mysterious">Mysterious</option>
+              <option value="sparkly">Sparkly</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="prefPlatforms">Main platform</label>
+            <select id="prefPlatforms">
+              <option value="TikTok">TikTok</option>
+              <option value="YouTube">YouTube</option>
+              <option value="Discord">Discord</option>
+              <option value="Instagram">Instagram</option>
+              <option value="Twitch">Twitch</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="button-row" style="margin-bottom:1rem;">
+          <button id="autoGenerateBtn" class="btn btn-primary" type="button">Generate Persona</button>
+          <button id="randomizeBtn" class="btn btn-secondary" type="button">Randomize</button>
+        </div>
+
+        <div class="section-head" style="text-align:left; margin:1.1rem 0 0.9rem;">
+          <h2>Editable persona builder</h2>
+          <p>After generating, you can change anything below.</p>
         </div>
 
         <div class="field">
@@ -716,7 +738,7 @@
 
         <div class="field">
           <label for="personaRole">Creator type or role</label>
-          <input id="personaRole" type="text" value="Soft-tech creator" placeholder="Streamer, artist, designer, community lead...">
+          <input id="personaRole" type="text" value="Soft-tech creator" placeholder="Streamer, artist, designer...">
         </div>
 
         <div class="field">
@@ -724,66 +746,57 @@
           <input id="personaMood" type="text" value="dreamy, kind, expressive, soft-tech" placeholder="dreamy, cozy, playful...">
         </div>
 
-        <div class="field">
-          <label for="personaAesthetic">Aesthetic direction</label>
-          <select id="personaAesthetic">
-            <option value="Pastel kawaii">Pastel kawaii</option>
-            <option value="Soft dreamcore">Soft dreamcore</option>
-            <option value="Cute cyber">Cute cyber</option>
-            <option value="Velvet night">Velvet night</option>
-            <option value="Hyperpop sparkle">Hyperpop sparkle</option>
-          </select>
-        </div>
+        <div class="two-col">
+          <div class="field">
+            <label for="personaAesthetic">Aesthetic direction</label>
+            <input id="personaAesthetic" type="text" value="Pastel kawaii" placeholder="Pastel kawaii">
+          </div>
 
-        <div class="field">
-          <label for="personaPalette">Colour palette</label>
-          <select id="personaPalette">
-            <option value="pink-lavender-mint-peach">Pink • Lavender • Mint • Peach</option>
-            <option value="rose-lilac-cream">Rose • Lilac • Cream</option>
-            <option value="berry-pink-violet">Berry • Pink • Violet</option>
-            <option value="mint-sky-white">Mint • Sky • White</option>
-            <option value="night-purple-silver">Night Purple • Silver</option>
-          </select>
+          <div class="field">
+            <label for="personaPalette">Palette style</label>
+            <select id="personaPalette">
+              <option value="pink-lavender-mint-peach">Pink • Lavender • Mint • Peach</option>
+              <option value="rose-lilac-cream">Rose • Lilac • Cream</option>
+              <option value="berry-pink-violet">Berry • Pink • Violet</option>
+              <option value="mint-sky-white">Mint • Sky • White</option>
+              <option value="night-purple-silver">Night Purple • Silver</option>
+            </select>
+          </div>
         </div>
 
         <div class="field">
           <label for="personaVoice">Voice and tone</label>
-          <textarea id="personaVoice" placeholder="How should this persona sound?">Warm, playful, comforting, a little dreamy, and easy to connect with.</textarea>
+          <textarea id="personaVoice">Warm, playful, comforting, a little dreamy, and easy to connect with.</textarea>
         </div>
 
         <div class="field">
           <label for="personaBio">Short bio</label>
-          <textarea id="personaBio" placeholder="Write a short persona bio">A cozy internet persona built around soft visuals, expressive creativity, and a welcoming online presence.</textarea>
+          <textarea id="personaBio">A cozy internet persona built around soft visuals, expressive creativity, and a welcoming online presence.</textarea>
         </div>
 
         <div class="field">
-          <label for="personaPlatforms">Main platforms</label>
+          <label for="personaPlatforms">Platforms</label>
           <input id="personaPlatforms" type="text" value="TikTok, YouTube, Discord, Instagram" placeholder="TikTok, Twitch, Discord...">
-          <div class="chip-row">
-            <span class="chip">Creator-ready</span>
-            <span class="chip">Profile-focused</span>
-            <span class="chip">Glow-up friendly</span>
-          </div>
         </div>
 
         <div class="button-row">
-          <button id="generateBtn" class="btn btn-primary" type="button">Generate Persona Preview</button>
+          <button id="updatePreviewBtn" class="btn btn-primary" type="button">Update Preview</button>
           <button id="resetBtn" class="btn btn-secondary" type="button">Reset Demo Values</button>
         </div>
       </div>
 
       <aside class="preview-card">
-        <h3>Live persona preview</h3>
-        <p>This panel updates with a simple placeholder persona card based on the builder fields.</p>
+        <h3>Generated persona preview</h3>
+        <p>This updates from either the generator or the manual builder.</p>
 
         <div class="preview-banner">
           <div class="preview-name" id="previewName">Plumwave</div>
           <div class="preview-handle" id="previewHandle">@plumwave · Soft-tech creator</div>
-          <div class="chip-row" id="previewMoodChips">
-            <span class="chip">dreamy</span>
-            <span class="chip">kind</span>
-            <span class="chip">expressive</span>
-            <span class="chip">soft-tech</span>
+          <div class="mood-row" id="previewMoodChips">
+            <span class="mood-chip">dreamy</span>
+            <span class="mood-chip">kind</span>
+            <span class="mood-chip">expressive</span>
+            <span class="mood-chip">soft-tech</span>
           </div>
         </div>
 
@@ -817,7 +830,16 @@
           </div>
         </div>
 
-        <div class="tiny-note">Everything here is placeholder-ready, so you can later connect it to a real quiz, form, or profile system.</div>
+        <div class="result-box">
+          <div class="result-label">Generated tags</div>
+          <div class="pill-row" id="previewTags">
+            <span class="pill">creator-ready</span>
+            <span class="pill">soft identity</span>
+            <span class="pill">profile-focused</span>
+          </div>
+        </div>
+
+        <div class="tiny-note">This generator uses preset name parts, moods, tones, and palettes to create a cohesive placeholder persona from the selected preferences.</div>
       </aside>
     </div>
   </section>
@@ -825,63 +847,36 @@
   <section>
     <div class="container">
       <div class="section-head">
-        <h2>What a built persona can include</h2>
-        <p>Persona Studio can become a full service flow or interactive experience for your site.</p>
-      </div>
-
-      <div class="preview-grid">
-        <article class="mini-card">
-          <h4>Name + handle system</h4>
-          <p>Suggestions for persona names, handles, and identity keywords that feel consistent and memorable.</p>
-        </article>
-        <article class="mini-card">
-          <h4>Visual identity direction</h4>
-          <p>Palettes, references, profile style ideas, and aesthetic notes for banners, pages, and socials.</p>
-        </article>
-        <article class="mini-card">
-          <h4>Voice guide</h4>
-          <p>A tiny tone document for captions, bios, greetings, and how the persona should sound online.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="section-head">
         <h2>Persona Studio packages</h2>
-        <p>These package ideas make the page feel like a real service inside Magic Plum Company.</p>
+        <p>These package ideas help position the builder as part of a real service inside Magic Plum Company.</p>
       </div>
 
       <div class="package-grid">
         <article class="package-card">
-          <div class="icon">🍓</div>
           <h3>Mini Persona Start</h3>
-          <p>A starter persona build with mood words, a short bio, palette direction, and style notes for new creators.</p>
+          <p>A lightweight generated persona with mood words, palette direction, and a short creator-ready bio.</p>
           <div class="package-meta">
-            <span>Mood words</span>
-            <span>Bio</span>
+            <span>Name</span>
+            <span>Mood</span>
             <span>Palette</span>
           </div>
         </article>
         <article class="package-card">
-          <div class="icon">🌙</div>
           <h3>Creator Persona Kit</h3>
-          <p>A more complete creator-facing set with profile styling, voice direction, and platform-ready presence ideas.</p>
+          <p>A stronger persona package with profile direction, tone of voice, and platform-specific presence ideas.</p>
           <div class="package-meta">
-            <span>Profile setup</span>
+            <span>Profiles</span>
             <span>Voice</span>
-            <span>Platforms</span>
+            <span>Brand feel</span>
           </div>
         </article>
         <article class="package-card">
-          <div class="icon">🧁</div>
           <h3>Full Persona System</h3>
-          <p>A complete identity system with persona concept, bio set, visual references, and landing-page-ready direction.</p>
+          <p>A complete identity concept with editable preview, aesthetics, naming, and landing-page-ready direction.</p>
           <div class="package-meta">
             <span>Full concept</span>
-            <span>References</span>
             <span>Mini site</span>
+            <span>Presence system</span>
           </div>
         </article>
       </div>
@@ -891,9 +886,9 @@
   <section>
     <div class="container">
       <div class="cta-box">
-        <h2>Start building a persona that feels real</h2>
+        <h2>Build a persona that feels intentional</h2>
         <p>
-          Persona Studio gives Magic Plum Company a full page dedicated to identity creation, creator expression, and online self-building.
+          This page now works as both a persona builder and a preference-based generator, so it can feel like a real tool instead of just a static concept page.
         </p>
         <div class="hero-actions" style="justify-content:center;">
           <a href="#" class="btn btn-primary">Begin Placeholder Intake</a>
@@ -905,7 +900,7 @@
 
   <footer class="footer">
     <div class="container">
-      <div>© <span id="year"></span> Magic Plum Company — Persona Studio</div>
+      <div>© <span id="year"></span> Magic Plum Company — Persona Studio Generator</div>
       <div class="footer-links">
         <a href="#">Placeholder Link</a>
         <a href="#">Placeholder Link</a>
@@ -929,6 +924,65 @@
       'night-purple-silver': ['#5d4f91', '#8f7cff', '#c6c6dd', '#f2f2fb']
     };
 
+    const paletteLabelMap = {
+      'pink-lavender-mint-peach': 'Pink • Lavender • Mint • Peach',
+      'rose-lilac-cream': 'Rose • Lilac • Cream',
+      'berry-pink-violet': 'Berry • Pink • Violet',
+      'mint-sky-white': 'Mint • Sky • White',
+      'night-purple-silver': 'Night Purple • Silver'
+    };
+
+    const generatorData = {
+      feminine: {
+        names: ['Plumina', 'Velvette', 'Lunabelle', 'Rosikoi', 'Peachumi', 'Starlette'],
+        handles: ['plumina', 'velvette', 'lunabelle', 'peachumi', 'starlette']
+      },
+      masculine: {
+        names: ['Plumbyte', 'Velorin', 'Mooncrest', 'Rivet', 'Novafox', 'Asteron'],
+        handles: ['plumbyte', 'velorin', 'mooncrest', 'novafox', 'asteron']
+      },
+      androgynous: {
+        names: ['Plumwave', 'Mistral', 'Veylo', 'Auralyn', 'Sablemint', 'Novaecho'],
+        handles: ['plumwave', 'veylo', 'novaecho', 'sablemint', 'auralyn']
+      },
+      neutral: {
+        names: ['Cloudplum', 'Softsignal', 'Moonframe', 'Pastelcore', 'Glowform', 'Mintline'],
+        handles: ['cloudplum', 'softsignal', 'moonframe', 'glowform', 'mintline']
+      },
+      mixed: {
+        names: ['Veloura', 'Plumnova', 'Cielbyte', 'Rosenight', 'Mintflare', 'Lilacrush'],
+        handles: ['plumnova', 'cielbyte', 'mintflare', 'rosenight', 'lilacrush']
+      },
+      moods: {
+        soft: ['dreamy', 'gentle', 'sweet', 'cozy'],
+        playful: ['bubbly', 'bright', 'cute', 'cheerful'],
+        bold: ['confident', 'sharp', 'vibrant', 'expressive'],
+        calm: ['soft-spoken', 'grounded', 'welcoming', 'peaceful'],
+        chaotic: ['sparkly', 'hyper', 'chaotic-cute', 'electric']
+      },
+      aesthetics: {
+        'pastel-kawaii': { label: 'Pastel kawaii', palette: 'pink-lavender-mint-peach', tags: ['cute', 'soft identity', 'pastel-ready'], hair: '#ff9ecf' },
+        'soft-dreamcore': { label: 'Soft dreamcore', palette: 'rose-lilac-cream', tags: ['dreamy', 'cozy aura', 'floaty vibe'], hair: '#dcbcff' },
+        'cute-cyber': { label: 'Cute cyber', palette: 'berry-pink-violet', tags: ['cyber cute', 'bright identity', 'future-soft'], hair: '#9e7bff' },
+        'velvet-night': { label: 'Velvet night', palette: 'night-purple-silver', tags: ['elegant', 'night mood', 'smooth aura'], hair: '#5d4f91' },
+        'hyperpop-sparkle': { label: 'Hyperpop sparkle', palette: 'mint-sky-white', tags: ['loud-cute', 'sparkly', 'playful energy'], hair: '#bfe7ff' }
+      },
+      roles: {
+        creator: 'Creator',
+        streamer: 'Streamer',
+        artist: 'Artist',
+        community: 'Community host',
+        editor: 'Editor / media creator'
+      },
+      comfort: {
+        cozy: 'comfort-first and soft to approach',
+        welcoming: 'friendly, open, and easy to connect with',
+        confident: 'stylish, clear, and sure of itself',
+        mysterious: 'smooth, curated, and a little elusive',
+        sparkly: 'bright, charming, and full of energy'
+      }
+    };
+
     const defaults = {
       name: 'Plumwave',
       handle: '@plumwave',
@@ -938,8 +992,14 @@
       palette: 'pink-lavender-mint-peach',
       voice: 'Warm, playful, comforting, a little dreamy, and easy to connect with.',
       bio: 'A cozy internet persona built around soft visuals, expressive creativity, and a welcoming online presence.',
-      platforms: 'TikTok, YouTube, Discord, Instagram'
+      platforms: 'TikTok, YouTube, Discord, Instagram',
+      tags: ['creator-ready', 'soft identity', 'profile-focused'],
+      hair: '#ff9ecf'
     };
+
+    function randomItem(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
 
     function animateCount(element, target, suffix = '') {
       let current = 0;
@@ -958,8 +1018,8 @@
       }, stepTime);
     }
 
-    function setPalette(colors) {
-      const palette = document.getElementById('previewPalette');
+    function setPalette(colors, targetId) {
+      const palette = document.getElementById(targetId);
       palette.innerHTML = '';
       colors.forEach(color => {
         const swatch = document.createElement('span');
@@ -974,47 +1034,118 @@
       container.innerHTML = '';
       moods.forEach(mood => {
         const chip = document.createElement('span');
-        chip.className = 'chip';
+        chip.className = 'mood-chip';
         chip.textContent = mood.trim();
         container.appendChild(chip);
       });
     }
 
-    function updatePreview() {
-      const name = document.getElementById('personaName').value.trim() || defaults.name;
-      const handle = document.getElementById('personaHandle').value.trim() || defaults.handle;
-      const role = document.getElementById('personaRole').value.trim() || defaults.role;
-      const mood = document.getElementById('personaMood').value.trim() || defaults.mood;
-      const aesthetic = document.getElementById('personaAesthetic').value;
-      const paletteKey = document.getElementById('personaPalette').value;
-      const voice = document.getElementById('personaVoice').value.trim() || defaults.voice;
-      const bio = document.getElementById('personaBio').value.trim() || defaults.bio;
-      const platforms = document.getElementById('personaPlatforms').value.trim() || defaults.platforms;
+    function setTags(tags) {
+      const container = document.getElementById('previewTags');
+      container.innerHTML = '';
+      tags.forEach(tag => {
+        const pill = document.createElement('span');
+        pill.className = 'pill';
+        pill.textContent = tag;
+        container.appendChild(pill);
+      });
+    }
 
-      document.getElementById('previewName').textContent = name;
-      document.getElementById('previewHandle').textContent = `${handle} · ${role}`;
-      document.getElementById('previewAesthetic').textContent = aesthetic;
-      document.getElementById('previewVoice').textContent = voice;
-      document.getElementById('previewBio').textContent = bio;
-      document.getElementById('previewPlatforms').textContent = platforms;
-      document.getElementById('heroPersonaName').textContent = name;
-      document.getElementById('heroPersonaMood').textContent = mood.replaceAll(',', ' •');
+    function applyPreview(data) {
+      document.getElementById('previewName').textContent = data.name;
+      document.getElementById('previewHandle').textContent = `${data.handle} · ${data.role}`;
+      document.getElementById('previewAesthetic').textContent = data.aesthetic;
+      document.getElementById('previewVoice').textContent = data.voice;
+      document.getElementById('previewBio').textContent = data.bio;
+      document.getElementById('previewPlatforms').textContent = data.platforms;
+      document.getElementById('heroPersonaName').textContent = data.name;
+      document.getElementById('heroPersonaMood').textContent = data.mood.split(',').map(x => x.trim()).join(' • ');
+      document.getElementById('avatarHair').style.background = data.hair;
 
-      setMoodChips(mood.split(','));
-      setPalette(paletteMap[paletteKey] || paletteMap[defaults.palette]);
+      const colors = paletteMap[data.palette] || paletteMap[defaults.palette];
+      setPalette(colors, 'previewPalette');
+      setPalette(colors, 'heroPalette');
+      setMoodChips(data.mood.split(','));
+      setTags(data.tags || defaults.tags);
+    }
+
+    function readBuilder() {
+      return {
+        name: document.getElementById('personaName').value.trim() || defaults.name,
+        handle: document.getElementById('personaHandle').value.trim() || defaults.handle,
+        role: document.getElementById('personaRole').value.trim() || defaults.role,
+        mood: document.getElementById('personaMood').value.trim() || defaults.mood,
+        aesthetic: document.getElementById('personaAesthetic').value.trim() || defaults.aesthetic,
+        palette: document.getElementById('personaPalette').value,
+        voice: document.getElementById('personaVoice').value.trim() || defaults.voice,
+        bio: document.getElementById('personaBio').value.trim() || defaults.bio,
+        platforms: document.getElementById('personaPlatforms').value.trim() || defaults.platforms,
+        tags: defaults.tags,
+        hair: (generatorData.aesthetics[document.getElementById('prefAesthetic').value] || generatorData.aesthetics['pastel-kawaii']).hair
+      };
+    }
+
+    function writeBuilder(data) {
+      document.getElementById('personaName').value = data.name;
+      document.getElementById('personaHandle').value = data.handle;
+      document.getElementById('personaRole').value = data.role;
+      document.getElementById('personaMood').value = data.mood;
+      document.getElementById('personaAesthetic').value = data.aesthetic;
+      document.getElementById('personaPalette').value = data.palette;
+      document.getElementById('personaVoice').value = data.voice;
+      document.getElementById('personaBio').value = data.bio;
+      document.getElementById('personaPlatforms').value = data.platforms;
+    }
+
+    function generatePersonaFromPreferences(randomize = false) {
+      const gender = randomize ? randomItem(['feminine', 'masculine', 'androgynous', 'neutral', 'mixed']) : document.getElementById('prefGender').value;
+      const aestheticKey = randomize ? randomItem(['pastel-kawaii', 'soft-dreamcore', 'cute-cyber', 'velvet-night', 'hyperpop-sparkle']) : document.getElementById('prefAesthetic').value;
+      const energy = randomize ? randomItem(['soft', 'playful', 'bold', 'calm', 'chaotic']) : document.getElementById('prefEnergy').value;
+      const roleKey = randomize ? randomItem(['creator', 'streamer', 'artist', 'community', 'editor']) : document.getElementById('prefRole').value;
+      const comfort = randomize ? randomItem(['cozy', 'welcoming', 'confident', 'mysterious', 'sparkly']) : document.getElementById('prefComfort').value;
+      const platform = randomize ? randomItem(['TikTok', 'YouTube', 'Discord', 'Instagram', 'Twitch']) : document.getElementById('prefPlatforms').value;
+
+      const base = generatorData[gender];
+      const aesthetic = generatorData.aesthetics[aestheticKey];
+      const moods = [...generatorData.moods[energy]];
+      const comfortLine = generatorData.comfort[comfort];
+      const name = randomItem(base.names);
+      const handle = `@${randomItem(base.handles)}`;
+      const role = `${aesthetic.label} ${generatorData.roles[roleKey]}`;
+      const mood = [moods[0], moods[1], comfort, aesthetic.label.toLowerCase()].join(', ');
+      const voice = `A ${energy} and ${comfort} voice that feels ${comfortLine}, with a ${aesthetic.label.toLowerCase()} edge that works especially well on ${platform}.`;
+      const bio = `${name} is a ${generatorData.roles[roleKey].toLowerCase()} persona built around ${aesthetic.label.toLowerCase()} visuals, ${moods[0]} energy, and a presence that feels ${comfortLine}.`;
+      const platforms = `${platform}, Discord, Instagram`;
+      const tags = [...aesthetic.tags, generatorData.roles[roleKey].toLowerCase(), comfort];
+
+      const result = {
+        name,
+        handle,
+        role,
+        mood,
+        aesthetic: aesthetic.label,
+        palette: aesthetic.palette,
+        voice,
+        bio,
+        platforms,
+        tags,
+        hair: aesthetic.hair
+      };
+
+      writeBuilder(result);
+      applyPreview(result);
     }
 
     function resetDemo() {
-      document.getElementById('personaName').value = defaults.name;
-      document.getElementById('personaHandle').value = defaults.handle;
-      document.getElementById('personaRole').value = defaults.role;
-      document.getElementById('personaMood').value = defaults.mood;
-      document.getElementById('personaAesthetic').value = defaults.aesthetic;
-      document.getElementById('personaPalette').value = defaults.palette;
-      document.getElementById('personaVoice').value = defaults.voice;
-      document.getElementById('personaBio').value = defaults.bio;
-      document.getElementById('personaPlatforms').value = defaults.platforms;
-      updatePreview();
+      document.getElementById('prefGender').value = 'feminine';
+      document.getElementById('prefAesthetic').value = 'pastel-kawaii';
+      document.getElementById('prefEnergy').value = 'soft';
+      document.getElementById('prefRole').value = 'creator';
+      document.getElementById('prefComfort').value = 'cozy';
+      document.getElementById('prefPlatforms').value = 'TikTok';
+      writeBuilder(defaults);
+      applyPreview(defaults);
+      document.getElementById('avatarHair').style.background = defaults.hair;
     }
 
     window.addEventListener('DOMContentLoaded', () => {
@@ -1025,16 +1156,18 @@
         if (el) animateCount(el, stat.value, stat.suffix);
       });
 
-      document.getElementById('generateBtn').addEventListener('click', updatePreview);
+      document.getElementById('autoGenerateBtn').addEventListener('click', () => generatePersonaFromPreferences(false));
+      document.getElementById('randomizeBtn').addEventListener('click', () => generatePersonaFromPreferences(true));
+      document.getElementById('updatePreviewBtn').addEventListener('click', () => applyPreview(readBuilder()));
       document.getElementById('resetBtn').addEventListener('click', resetDemo);
 
       ['personaName', 'personaHandle', 'personaRole', 'personaMood', 'personaAesthetic', 'personaPalette', 'personaVoice', 'personaBio', 'personaPlatforms']
         .forEach(id => {
-          document.getElementById(id).addEventListener('input', updatePreview);
-          document.getElementById(id).addEventListener('change', updatePreview);
+          document.getElementById(id).addEventListener('input', () => applyPreview(readBuilder()));
+          document.getElementById(id).addEventListener('change', () => applyPreview(readBuilder()));
         });
 
-      updatePreview();
+      resetDemo();
     });
   </script>
 </body>
