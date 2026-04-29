@@ -22,10 +22,10 @@
 <footer>© 2026 Magic Plum Company. All rights reserved.</footer>
 <script>
 const ventures=[
-{name:'Femboy Media Corporation',emoji:'🌈',desc:'Modern entertainment, creator culture, and expressive digital media.',url:'www.femboymediacorporation.co.uk'},
+{name:'Femboy Media Corporation',emoji:'🌈',desc:'Modern entertainment, creator culture, and expressive digital media.',url:'https://www.femboymediacorporation.co.uk/'},
 {name:'Prism Media Group',emoji:'💎',desc:'Branding, visuals, campaigns, and colorful storytelling.',url:'#'},
 {name:'MagicByte ICT',emoji:'💻',desc:'Tech support, web solutions, systems, and ICT services.',url:'#'},
-{name:'United Broadcasting Company',emoji:'📡',desc:'Broadcasting, radio, streaming and live media experiences.',url:'ubc.anarchygroup.uk'}
+{name:'United Broadcasting Company',emoji:'📡',desc:'Broadcasting, radio, streaming and live media experiences.',url:'https://ubc.anarchygroup.uk/'}
 ];
 const grid=document.getElementById('venturesGrid');
 ventures.forEach(v=>{const d=document.createElement('div');d.className='venture';d.innerHTML=`<a href="${v.url}" style="color:white;text-decoration:none;display:block"><div style="font-size:42px">${v.emoji}</div><h3>${v.name}</h3><p class="muted">${v.desc}</p><p style="margin-top:10px;color:#ff7ac8">Visit Site →</p></a>`;grid.appendChild(d);});
