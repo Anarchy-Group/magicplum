@@ -87,7 +87,7 @@ header{
 
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,2fr));
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
     gap:20px;
 }
 
@@ -268,6 +268,7 @@ section{
 
 <script>
 const ventures = [
+
     {
         name: 'Femboy Media Corporation',
         emoji: '🌈',
@@ -315,19 +316,22 @@ const ventures = [
         emoji: '🏗️',
         desc: 'CAD, Revit, Autodesk, and technical support.',
         url: 'https://revithelpdesk.co.uk/'
-    }
+    },
+
     {
         name: 'UK Television Clips',
-        emoji: '🏗️',
-        desc: 'TV, History, UKTVC, Clips.',
+        emoji: '📺',
+        desc: 'British television archives, memorable clips, broadcasting history and entertainment moments.',
         url: 'https://uktvc.magicplum.co.uk/'
-    }
+    },
+
     {
         name: 'Plum Identity',
-        emoji: '🏗️',
-        desc: 'ID, Identity, Logon, MFA, Security, Unified login system.',
+        emoji: '🪪',
+        desc: 'A unified sign-on and identity platform across the entire Magic Plum ecosystem.',
         url: 'https://identity.magicplum.co.uk/'
     }
+
 ];
 
 const grid = document.getElementById('venturesGrid');
