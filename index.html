@@ -1,37 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Magic Plum Company</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:Arial,sans-serif;background:linear-gradient(180deg,#2a003f,#05050a,#000);color:#fff}header{position:sticky;top:0;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);padding:20px;border-bottom:1px solid rgba(255,255,255,.1)}.wrap{max-width:1100px;margin:auto;padding:20px}.row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}.nav a{color:#fff;text-decoration:none;margin-left:15px}.hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;padding:60px 20px}.card,.venture,.cta{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:25px}.btn{display:inline-block;background:#ff4fb2;color:#fff;padding:12px 18px;border-radius:14px;text-decoration:none;margin-right:10px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}.venture:hover{transform:translateY(-5px);transition:.2s}.muted{color:rgba(255,255,255,.72)}footer{text-align:center;padding:30px;color:rgba(255,255,255,.5);border-top:1px solid rgba(255,255,255,.1)}h1,h2,h3{margin-bottom:12px}section{padding:30px 20px}@media(max-width:700px){h1{font-size:26px}h2{font-size:32px}.row{flex-direction:column;align-items:flex-start}.nav a{margin:0 12px 0 0;display:inline-block;padding-top:8px}.hero{padding:30px 10px}.wrap{padding:14px}}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:linear-gradient(180deg,#2a003f,#05050a,#000);
+    color:#fff;
+}
+
+header{
+    position:sticky;
+    top:0;
+    background:rgba(0,0,0,.45);
+    backdrop-filter:blur(8px);
+    padding:20px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+    z-index:100;
+}
+
+.wrap{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.nav a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:15px;
+    transition:0.2s;
+}
+
+.nav a:hover{
+    color:#ff7ac8;
+}
+
+.hero{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    padding:60px 20px;
+}
+
+.card,
+.venture,
+.cta{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:24px;
+    padding:25px;
+}
+
+.btn{
+    display:inline-block;
+    background:#ff4fb2;
+    color:#fff;
+    padding:12px 18px;
+    border-radius:14px;
+    text-decoration:none;
+    margin-right:10px;
+    transition:0.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    background:#ff68bf;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
+}
+
+.venture{
+    transition:0.2s;
+}
+
+.venture:hover{
+    transform:translateY(-5px);
+}
+
+.muted{
+    color:rgba(255,255,255,.72);
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:rgba(255,255,255,.5);
+    border-top:1px solid rgba(255,255,255,.1);
+    margin-top:30px;
+}
+
+h1,h2,h3{
+    margin-bottom:12px;
+}
+
+section{
+    padding:30px 20px;
+}
+
+@media(max-width:700px){
+
+    h1{
+        font-size:26px;
+    }
+
+    h2{
+        font-size:32px;
+    }
+
+    .row{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .nav a{
+        margin:0 12px 0 0;
+        display:inline-block;
+        padding-top:8px;
+    }
+
+    .hero{
+        padding:30px 10px;
+    }
+
+    .wrap{
+        padding:14px;
+    }
+}
 </style>
 </head>
+
 <body>
-<header><div class="wrap row"><div><h1>Magic Plum Company</h1><div class="muted">Creative ventures, media & technology</div></div><nav class="nav"><a href="index.html">Home</a><a href="about">About MPC</a><a href="services">Services</a><a href="#ventures">Companies</a><a href="contact">Contact</a></nav></div></header>
+
+<header>
+    <div class="wrap row">
+
+        <div>
+            <h1>Magic Plum Company</h1>
+            <div class="muted">
+                Creative ventures, media & technology
+            </div>
+        </div>
+
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About MPC</a>
+            <a href="services.html">Services</a>
+            <a href="#ventures">Companies</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </div>
+</header>
+
 <main class="wrap">
-<section class="hero">
-<div><p class="muted">WELCOME</p><h2>Building bold ideas with a little magic.</h2><p class="muted">The Magic Plum Company powers side hobbies across media, branding, entertainment and IT innovation.</p><br><a class="btn" href="#ventures">Explore Ventures</a><a class="btn" href="#contact">Contact</a></div>
-<div class="card"><div style="font-size:72px">🔮🍑</div><p class="muted">Where creativity meets community, storytelling and smart technology.</p></div>
-</section>
-<section id="about"><h3>About MPC</h3><p class="muted">Magic Plum Company connects multiple passion projects under one identity. This main website acts as the central hub for visitors looking specifically for MPC services, updates and partnerships.</p><p style="margin-top:12px"><a class="btn" href="about">Read More</a> <a class="btn" href="services">Our Services</a></p></section>
-<section id="ventures"><h3>Side Hobbies & Brands</h3><div class="grid" id="venturesGrid"></div></section>
-<section id="contact"><div class="cta"><h3>Let's Build Something</h3><p class="muted">Interested in collaboration, media, or technology projects? Reach out to Magic Plum Company.</p></div></section>
+
+    <section class="hero">
+
+        <div>
+            <p class="muted">WELCOME</p>
+
+            <h2>
+                Building bold ideas with a little magic.
+            </h2>
+
+            <p class="muted">
+                The Magic Plum Company powers side hobbies across media,
+                branding, entertainment and IT innovation.
+            </p>
+
+            <br>
+
+            <a class="btn" href="#ventures">
+                Explore Ventures
+            </a>
+
+            <a class="btn" href="#contact">
+                Contact
+            </a>
+        </div>
+
+        <div class="card">
+            <div style="font-size:72px">
+                🔮🍑
+            </div>
+
+            <p class="muted">
+                Where creativity meets community, storytelling
+                and smart technology.
+            </p>
+        </div>
+
+    </section>
+
+    <section id="about">
+
+        <h3>About MPC</h3>
+
+        <p class="muted">
+            Magic Plum Company connects multiple passion projects
+            under one identity. This main website acts as the central
+            hub for visitors looking specifically for MPC services,
+            updates and partnerships.
+        </p>
+
+        <p style="margin-top:12px">
+            <a class="btn" href="about.html">
+                Read More
+            </a>
+
+            <a class="btn" href="services.html">
+                Our Services
+            </a>
+        </p>
+
+    </section>
+
+    <section id="ventures">
+
+        <h3>Side Hobbies & Brands</h3>
+
+        <div class="grid" id="venturesGrid"></div>
+
+    </section>
+
+    <section id="contact">
+
+        <div class="cta">
+
+            <h3>Let's Build Something</h3>
+
+            <p class="muted">
+                Interested in collaboration, media, or technology projects?
+                Reach out to Magic Plum Company.
+            </p>
+
+        </div>
+
+    </section>
+
 </main>
-<footer>© 2026 Magic Plum Company. All rights reserved.</footer>
+
+<footer>
+    © 2026 Magic Plum Company. All rights reserved.
+</footer>
+
 <script>
-const ventures=[
-{name:'Femboy Media Corporation',emoji:'🌈',desc:'Modern entertainment, creator culture, and expressive digital media.',url:'https://www.femboymediacorporation.co.uk/'},
-{name:'Prism Media Group',emoji:'💎',desc:'Branding, visuals, campaigns, and colorful storytelling.',url:'#'},
-{name:'MagicByte ICT',emoji:'💻',desc:'Tech support, web solutions, systems, and ICT services.',url:'https://ict.magicplum.co.uk'},
-{name:'United Broadcasting Company',emoji:'📡',desc:'Broadcasting, radio, streaming and live media experiences.',url:'https://ubc.anarchygroup.uk/'}
-{name:'Plum Academy',emoji:'',desc:'School, revision, support and education',url:'https://academy.magicplum.co.uk/'}
-{name:'Anarchy Group',emoji:'',desc:'Media, chaos, destruction, no-form',url:'https://www.anarchygroup.uk/'}
-{name:'Revit Helpdesk',emoji:'',desc:'CAD, Revit, Autodesk, Random',url:'https://revithelpdesk.co.uk/'}
+const ventures = [
+    {
+        name: 'Femboy Media Corporation',
+        emoji: '🌈',
+        desc: 'Modern entertainment, creator culture, and expressive digital media.',
+        url: 'https://www.femboymediacorporation.co.uk/'
+    },
+
+    {
+        name: 'Prism Media Group',
+        emoji: '💎',
+        desc: 'Branding, visuals, campaigns, and colorful storytelling.',
+        url: '#'
+    },
+
+    {
+        name: 'MagicByte ICT',
+        emoji: '💻',
+        desc: 'Tech support, web solutions, systems, and ICT services.',
+        url: 'https://ict.magicplum.co.uk'
+    },
+
+    {
+        name: 'United Broadcasting Company',
+        emoji: '📡',
+        desc: 'Broadcasting, radio, streaming and live media experiences.',
+        url: 'https://ubc.anarchygroup.uk/'
+    },
+
+    {
+        name: 'Plum Academy',
+        emoji: '📚',
+        desc: 'School, revision, support and education.',
+        url: 'https://academy.magicplum.co.uk/'
+    },
+
+    {
+        name: 'Anarchy Group',
+        emoji: '🔥',
+        desc: 'Media, chaos, destruction, and no-form creativity.',
+        url: 'https://www.anarchygroup.uk/'
+    },
+
+    {
+        name: 'Revit Helpdesk',
+        emoji: '🏗️',
+        desc: 'CAD, Revit, Autodesk, and technical support.',
+        url: 'https://revithelpdesk.co.uk/'
+    }
 ];
-const grid=document.getElementById('venturesGrid');
-ventures.forEach(v=>{const d=document.createElement('div');d.className='venture';d.innerHTML=`<a href="${v.url}" style="color:white;text-decoration:none;display:block"><div style="font-size:42px">${v.emoji}</div><h3>${v.name}</h3><p class="muted">${v.desc}</p><p style="margin-top:10px;color:#ff7ac8">Visit Site →</p></a>`;grid.appendChild(d);});
+
+const grid = document.getElementById('venturesGrid');
+
+ventures.forEach(v => {
+
+    const d = document.createElement('div');
+
+    d.className = 'venture';
+
+    d.innerHTML = `
+        <a href="${v.url}" 
+           target="_blank"
+           style="color:white;text-decoration:none;display:block">
+
+            <div style="font-size:42px;margin-bottom:10px">
+                ${v.emoji}
+            </div>
+
+            <h3>${v.name}</h3>
+
+            <p class="muted">
+                ${v.desc}
+            </p>
+
+            <p style="margin-top:10px;color:#ff7ac8">
+                Visit Site →
+            </p>
+
+        </a>
+    `;
+
+    grid.appendChild(d);
+
+});
 </script>
+
 </body>
 </html>
