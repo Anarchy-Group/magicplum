@@ -135,9 +135,8 @@ nav.scrolled{box-shadow:0 4px 24px rgba(92,45,143,0.09)}
 .btn-light:hover{background:var(--plum3);transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,0.2)}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:3rem}
 .msforms-wrap{border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;box-shadow:0 8px 32px rgba(92,45,143,0.08);background:#fff;position:relative}
-/* Invisible overlay that blocks the iframe from stealing focus on load */
-.msforms-focus-guard{position:absolute;inset:0;z-index:2;pointer-events:none}
 .msforms-wrap iframe{display:block;width:100%;border:none}
+.msforms-placeholder-inner{display:flex;align-items:center;justify-content:center;height:600px;background:var(--off);color:var(--ink3);font-size:13px;font-weight:500;gap:8px}
 .contact-info{display:flex;flex-direction:column;gap:16px}
 .contact-info-card{padding:1.25rem 1.5rem;border-radius:var(--radius);border:1px solid var(--border);background:#fff;display:flex;align-items:flex-start;gap:14px}
 .ci-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px}
@@ -388,19 +387,9 @@ footer{background:var(--ink);color:#fff;padding:4rem 3rem 2rem}
   <p class="section-desc reveal reveal-delay-1">Interested in collaboration, media, technology projects, or partnerships? Reach out to Magic Plum Company UK.</p>
   <div class="contact-grid">
     <div class="msforms-wrap reveal">
-      <!-- Focus guard: prevents iframe stealing scroll focus on load -->
-      <div class="msforms-focus-guard" id="msformsFocusGuard" aria-hidden="true"></div>
-      <iframe
-        id="msformsIframe"
-        src="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAaftu8NUQ0NENldUMDhWVVA2VjhNRTNNQUZFWVNMVi4u"
-        width="100%"
-        height="600"
-        frameborder="0"
-        marginwidth="0"
-        marginheight="0"
-        tabindex="-1"
-        style="border:none;max-width:100%;display:block">
-      </iframe>
+      <div class="msforms-placeholder-inner" id="msformsPlaceholder">
+        <span>⏳</span> Loading form…
+      </div>
     </div>
     <div class="contact-info reveal reveal-delay-2">
       <div class="contact-info-card"><span class="ci-icon">🇬🇧</span><div><div class="ci-label">UK Site</div><div class="ci-value">magicplum.co.uk</div></div></div>
@@ -477,32 +466,41 @@ footer{background:var(--ink);color:#fff;padding:4rem 3rem 2rem}
 
 <script>
 // ═══════════════════════════════════════════════════════════
-//  FIX: Prevent MS Forms iframe from stealing scroll on load
+//  FIX: Lazy-load MS Forms iframe so it never steals focus on page load
 // ═══════════════════════════════════════════════════════════
 (function() {
-  // Save scroll position before anything can move it
-  var savedX = 0, savedY = 0;
+  var placeholder = document.getElementById('msformsPlaceholder');
+  var wrap = placeholder && placeholder.parentElement;
+  var loaded = false;
 
-  // Lock scroll position on any scroll event during page load
-  function lockScroll() {
-    window.scrollTo(savedX, savedY);
+  function loadIframe() {
+    if (loaded || !wrap) return;
+    loaded = true;
+    // Remove placeholder
+    if (placeholder) placeholder.remove();
+    // Create iframe now, when user is near the form
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAaftu8NUQ0NENldUMDhWVVA2VjhNRTNNQUZFWVNMVi4u';
+    iframe.width = '100%';
+    iframe.height = '600';
+    iframe.frameBorder = '0';
+    iframe.style.cssText = 'border:none;max-width:100%;display:block';
+    wrap.appendChild(iframe);
   }
 
-  // Start locking immediately
-  window.addEventListener('scroll', lockScroll, { passive: false });
-
-  // Once the iframe has loaded, restore scroll to top and release the lock
-  window.addEventListener('load', function() {
-    // Give the iframe a moment to try stealing focus, then correct it
-    setTimeout(function() {
-      window.removeEventListener('scroll', lockScroll);
-      window.scrollTo(0, 0);
-
-      // Remove the focus guard overlay so the iframe is interactive
-      var guard = document.getElementById('msformsFocusGuard');
-      if (guard) guard.style.display = 'none';
-    }, 200);
-  });
+  // Use IntersectionObserver to only load when scrolled into view
+  if ('IntersectionObserver' in window && placeholder) {
+    var observer = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        loadIframe();
+        observer.disconnect();
+      }
+    }, { rootMargin: '200px' }); // start loading 200px before it's visible
+    observer.observe(placeholder);
+  } else {
+    // Fallback: just load it after a short delay
+    setTimeout(loadIframe, 2000);
+  }
 })();
 
 // ═══════════════════════════════════════════════════════════
