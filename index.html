@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta property="og:title" content="Magic Plum Company — United Kingdom">
-<meta property="og:description" content="Magic Plum Company UK Website">
+<meta property="og:title" content="Magic Plum Company — Becoming Prism Media Group">
+<meta property="og:description" content="Magic Plum Company, Femboy Media Corporation, United Broadcasting Company & Anarchy Group are merging to form Prism Media Group — an LGBTQ+ friendly media organisation.">
 <meta property="og:image" content="https://www.magicplum.co.uk/logo.jpg">
 <meta property="og:url" content="https://www.magicplum.co.uk/">
-<meta name="theme-color" content="#FFB6C1">
-<title>Magic Plum Company — United Kingdom</title>
+<meta name="theme-color" content="#7C3AED">
+<title>Magic Plum Company → Prism Media Group — Merger Announcement</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
@@ -23,8 +23,13 @@
   --plum:#5C2D8F;
   --plum2:#7B4BB5;
   --plum3:#EDE5F8;
+  --prism:#7C3AED;
+  --prism2:#9D6CF0;
+  --prism3:#EDE5FA;
   --accent:#E91E8C;
   --accent2:#FF5CAA;
+  --accent3:#0EA5E9;
+  --accent4:#10B981;
   --border:rgba(92,45,143,0.12);
   --border2:rgba(92,45,143,0.22);
   --radius:14px;
@@ -38,12 +43,14 @@ body{background:var(--white);color:var(--ink);font-family:var(--font-body);line-
 ::-webkit-scrollbar{width:6px}
 ::-webkit-scrollbar-track{background:var(--off)}
 ::-webkit-scrollbar-thumb{background:var(--plum2);border-radius:99px}
+
 #cursor{position:fixed;width:10px;height:10px;border-radius:50%;background:var(--accent);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform 0.08s,width 0.2s,height 0.2s,opacity 0.2s;mix-blend-mode:multiply}
 #cursor.big{width:36px;height:36px;opacity:0.35}
+
 nav{position:fixed;top:0;left:0;right:0;z-index:500;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 3rem;background:rgba(255,255,255,0.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:box-shadow 0.3s}
 nav.scrolled{box-shadow:0 4px 24px rgba(92,45,143,0.09)}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-logo-mark{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--plum),var(--accent));display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.nav-logo-mark{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--plum),var(--accent));display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;color:#fff}
 .nav-logo-text{font-family:var(--font-head);font-weight:700;font-size:1rem;color:var(--ink);letter-spacing:-0.01em;line-height:1.1}
 .nav-logo-sub{font-size:9px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--plum2);margin-top:1px}
 .nav-links{display:flex;gap:2rem;align-items:center}
@@ -51,213 +58,140 @@ nav.scrolled{box-shadow:0 4px 24px rgba(92,45,143,0.09)}
 .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.2s}
 .nav-links a:hover{color:var(--plum)}
 .nav-links a:hover::after{transform:scaleX(1)}
-.nav-uk-badge{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:99px;background:var(--plum3);border:1.5px solid var(--border2);font-size:12px;font-weight:600;color:var(--plum);letter-spacing:0.02em}
-.nav-mobile-btn{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
-.nav-mobile-btn span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all 0.25s}
-.mobile-menu{display:none;position:fixed;inset:0;background:rgba(255,255,255,0.98);z-index:490;padding:calc(var(--nav-h) + 2rem) 2rem 2rem;flex-direction:column;gap:0}
-.mobile-menu.open{display:flex}
-.mobile-menu a{font-family:var(--font-head);font-size:2rem;font-weight:700;color:var(--ink);text-decoration:none;padding:0.6rem 0;border-bottom:1px solid var(--border);transition:color 0.18s}
-.mobile-menu a:hover{color:var(--plum)}
-.hero{min-height:100vh;padding:calc(var(--nav-h) + 5rem) 3rem 5rem;display:flex;align-items:center;position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 55% 55% at 85% 20%, rgba(92,45,143,0.09) 0%, transparent 65%),radial-gradient(ellipse 40% 40% at 15% 80%, rgba(233,30,140,0.06) 0%, transparent 60%)}
-.hero-grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(92,45,143,0.045) 1px, transparent 1px),linear-gradient(90deg, rgba(92,45,143,0.045) 1px, transparent 1px);background-size:52px 52px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%)}
-.hero-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--plum2);margin-bottom:1.4rem}
+.nav-announcement-badge{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:99px;background:#FEF3C7;border:1.5px solid rgba(217,119,6,0.3);font-size:12px;font-weight:600;color:#B45309;letter-spacing:0.02em}
+.nav-announcement-badge .badge-dot{width:6px;height:6px;border-radius:50%;background:#F59E0B;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.7)}}
+
+/* ── Hero ── */
+.hero{min-height:100vh;padding:calc(var(--nav-h) + 4rem) 3rem 5rem;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 55% 55% at 80% 25%, rgba(92,45,143,0.07) 0%, transparent 65%),radial-gradient(ellipse 40% 40% at 20% 75%, rgba(233,30,140,0.05) 0%, transparent 60%),radial-gradient(ellipse 35% 35% at 50% 50%, rgba(124,58,237,0.05) 0%, transparent 60%)}
+.hero-grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(92,45,143,0.035) 1px, transparent 1px),linear-gradient(90deg, rgba(92,45,143,0.035) 1px, transparent 1px);background-size:52px 52px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%)}
+.hero-inner{position:relative;z-index:1;max-width:1000px;margin:0 auto;width:100%;text-align:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--plum2);margin-bottom:1.5rem}
 .hero-eyebrow::before{content:'';width:24px;height:2px;background:var(--accent);border-radius:2px}
-.hero h1{font-family:var(--font-head);font-weight:800;font-size:clamp(2.6rem,4.5vw,4rem);line-height:1.05;letter-spacing:-0.03em;color:var(--ink);margin-bottom:1.25rem}
-.hero h1 .hl{color:var(--plum)}
+.hero-eyebrow::after{content:'';width:24px;height:2px;background:var(--accent);border-radius:2px}
+.hero h1{font-family:var(--font-head);font-weight:800;font-size:clamp(2.4rem,4.5vw,3.8rem);line-height:1.1;letter-spacing:-0.03em;color:var(--ink);margin-bottom:1.25rem}
+.hero h1 .hl{background:linear-gradient(135deg,var(--plum),var(--prism));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero h1 .hl2{color:var(--accent);font-style:italic}
-.hero-desc{font-size:1.05rem;color:var(--ink2);line-height:1.7;max-width:480px;margin-bottom:2rem}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
-.btn-primary{padding:13px 28px;border-radius:99px;background:var(--plum);color:#fff;font-family:var(--font-body);font-size:14px;font-weight:600;border:none;cursor:pointer;text-decoration:none;transition:all 0.22s;display:inline-flex;align-items:center;gap:8px}
-.btn-primary:hover{background:var(--plum2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(92,45,143,0.28)}
-.btn-secondary{padding:13px 28px;border-radius:99px;background:transparent;color:var(--plum);border:1.5px solid var(--border2);font-family:var(--font-body);font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.22s;display:inline-flex;align-items:center;gap:8px}
+.hero-desc{font-size:1.1rem;color:var(--ink2);line-height:1.8;max-width:620px;margin:0 auto 2rem}
+
+/* ── Merger Equation ── */
+.merger-section{margin:1.5rem auto 2.5rem;max-width:800px}
+.merger-row{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0.6rem;margin-bottom:1rem}
+.merger-brand{padding:11px 18px;border-radius:99px;font-family:var(--font-head);font-weight:700;font-size:0.9rem;letter-spacing:-0.01em;white-space:nowrap}
+.merger-brand.mpc{background:var(--plum3);color:var(--plum);border:1.5px solid var(--border2)}
+.merger-brand.fmc{background:#FFF0F5;color:#C2185B;border:1.5px solid rgba(194,24,91,0.25)}
+.merger-brand.ubc{background:#F0F9FF;color:#0369A1;border:1.5px solid rgba(3,105,161,0.25)}
+.merger-brand.ag{background:#FFF7ED;color:#C2410C;border:1.5px solid rgba(194,65,12,0.25)}
+.merger-plus{font-family:var(--font-head);font-weight:800;font-size:1.2rem;color:var(--ink3)}
+.merger-arrow{font-family:var(--font-head);font-weight:800;font-size:1.4rem;color:var(--prism)}
+.merger-result{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:99px;background:linear-gradient(135deg,var(--prism),#5B21B6);color:#fff;font-family:var(--font-head);font-weight:800;font-size:1.05rem;letter-spacing:-0.01em;box-shadow:0 8px 32px rgba(124,58,237,0.35);animation:glowPulse 2.5s ease-in-out infinite}
+@keyframes glowPulse{0%,100%{box-shadow:0 8px 32px rgba(124,58,237,0.35)}50%{box-shadow:0 12px 40px rgba(124,58,237,0.55)}}
+.merger-sub{font-size:13px;color:var(--ink3);margin-top:0.75rem;font-weight:500}
+
+/* ── CTA Buttons ── */
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:3rem}
+.btn-primary{padding:14px 30px;border-radius:99px;background:var(--prism);color:#fff;font-family:var(--font-body);font-size:14px;font-weight:600;border:none;cursor:pointer;text-decoration:none;transition:all 0.22s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:var(--prism2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(124,58,237,0.28)}
+.btn-secondary{padding:14px 30px;border-radius:99px;background:transparent;color:var(--plum);border:1.5px solid var(--border2);font-family:var(--font-body);font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.22s;display:inline-flex;align-items:center;gap:8px}
 .btn-secondary:hover{background:var(--plum3);border-color:var(--plum);transform:translateY(-1px)}
-.hero-visual{position:relative}
-.hero-card{background:#fff;border-radius:20px;border:1px solid var(--border);padding:2rem;box-shadow:0 20px 60px rgba(92,45,143,0.1);position:relative;overflow:hidden}
-.hero-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(92,45,143,0.04) 0%,rgba(233,30,140,0.03) 100%)}
-.hero-code{font-family:'Courier New',monospace;font-size:13px;line-height:1.7;color:var(--ink2);position:relative;z-index:1}
-.hero-code .kw{color:var(--plum);font-weight:700}
-.hero-code .str{color:var(--accent)}
-.hero-code .fn{color:#0E7490}
-.hero-code .cm{color:var(--ink3);font-style:italic}
-.hero-code .num{color:#D97706}
-.hero-ticker{margin-top:1.25rem;padding:10px 14px;background:var(--plum3);border-radius:var(--rad-sm);font-size:12px;color:var(--plum);font-weight:600;display:flex;align-items:center;gap:8px;position:relative;z-index:1}
-.ticker-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 1.5s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.8)}}
-.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem;padding-top:2rem;border-top:1px solid var(--border)}
-.stat{text-align:center}
-.stat-num{font-family:var(--font-head);font-weight:800;font-size:1.8rem;color:var(--plum);line-height:1}
-.stat-label{font-size:11px;color:var(--ink3);font-weight:500;letter-spacing:0.06em;text-transform:uppercase;margin-top:4px}
-.section{padding:6rem 3rem;max-width:1200px;margin:0 auto}
-.section-full{padding:5rem 3rem;background:var(--off)}
-.section-full .section{padding:0;background:none}
-.section-label{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--plum2);margin-bottom:0.85rem}
+.btn-outline-white{padding:14px 30px;border-radius:99px;background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.4);font-family:var(--font-body);font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.22s;display:inline-flex;align-items:center;gap:8px}
+.btn-outline-white:hover{background:rgba(255,255,255,0.1);border-color:#fff}
+
+/* ── Value Props Row ── */
+.values-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:780px;margin:0 auto}
+.value-card{padding:1.5rem 1.25rem;border-radius:var(--radius);border:1px solid var(--border);background:#fff;text-align:center;transition:all 0.22s}
+.value-card:hover{border-color:var(--prism);box-shadow:0 8px 24px rgba(124,58,237,0.08);transform:translateY(-2px)}
+.value-icon{font-size:2rem;margin-bottom:0.75rem;display:block}
+.value-title{font-family:var(--font-head);font-weight:700;font-size:0.95rem;color:var(--ink);margin-bottom:0.35rem;letter-spacing:-0.01em}
+.value-desc{font-size:12.5px;color:var(--ink3);line-height:1.6}
+
+/* ── Sections ── */
+.section{padding:5rem 3rem;max-width:1100px;margin:0 auto}
+.section-alt{background:var(--off);padding:5rem 3rem}
+.section-alt .section{padding:0;background:none}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--plum2);margin-bottom:0.75rem}
 .section-label::before{content:'';width:20px;height:2px;background:var(--accent);border-radius:2px}
-.section-title{font-family:var(--font-head);font-weight:800;font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:-0.03em;color:var(--ink);margin-bottom:1rem;line-height:1.1}
-.section-desc{font-size:1rem;color:var(--ink2);max-width:560px;line-height:1.7}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:3.5rem}
-.about-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.5rem}
-.pill{padding:6px 14px;border-radius:99px;font-size:12px;font-weight:600;background:var(--plum3);color:var(--plum);border:1px solid var(--border2)}
-.about-body{font-size:1rem;color:var(--ink2);line-height:1.8;margin-bottom:1.5rem}
-.about-visual{background:#fff;border-radius:20px;border:1px solid var(--border);padding:2rem;display:flex;flex-direction:column;gap:12px;box-shadow:0 8px 32px rgba(92,45,143,0.08)}
-.about-chip{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:10px;border:1px solid var(--border);background:var(--off);font-size:13px;font-weight:500;color:var(--ink2);transition:all 0.2s;cursor:default}
-.about-chip:hover{background:var(--plum3);border-color:var(--border2);color:var(--plum)}
-.about-chip-icon{font-size:1.3rem;flex-shrink:0}
-.ventures-header{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap}
-.ventures-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
-.venture-card{background:#fff;border-radius:var(--radius);border:1px solid var(--border);padding:1.5rem;text-decoration:none;color:inherit;transition:all 0.22s;position:relative;overflow:hidden;display:flex;flex-direction:column}
-.venture-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 60%,rgba(92,45,143,0.04) 100%);opacity:0;transition:opacity 0.22s}
-.venture-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(92,45,143,0.12);border-color:var(--border2)}
-.venture-card:hover::before{opacity:1}
-.vc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
-.vc-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
-.vc-tag{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);background:var(--off);padding:4px 10px;border-radius:99px;border:1px solid var(--border)}
-.vc-name{font-family:var(--font-head);font-weight:700;font-size:1.05rem;color:var(--ink);margin-bottom:0.4rem;letter-spacing:-0.01em}
-.vc-desc{font-size:13px;color:var(--ink2);line-height:1.6;flex:1;margin-bottom:1.25rem}
-.vc-link{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--plum);letter-spacing:0.01em;text-decoration:none;transition:gap 0.18s}
-.venture-card:hover .vc-link{gap:10px}
-.vc-link svg{width:14px;height:14px;transition:transform 0.18s}
-.venture-card:hover .vc-link svg{transform:translateX(2px)}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem}
-.service-card{padding:2rem;border-radius:var(--radius);border:1px solid var(--border);background:#fff;transition:all 0.22s}
-.service-card:hover{border-color:var(--plum);box-shadow:0 8px 28px rgba(92,45,143,0.1);transform:translateY(-2px)}
-.service-icon{font-size:2rem;margin-bottom:1rem}
-.service-name{font-family:var(--font-head);font-weight:700;font-size:1.05rem;color:var(--ink);margin-bottom:0.5rem}
-.service-desc{font-size:13px;color:var(--ink2);line-height:1.7}
-.uk-strip{background:linear-gradient(135deg,var(--plum) 0%,#3A1A6E 100%);padding:5rem 3rem;text-align:center;color:#fff;position:relative;overflow:hidden}
-.uk-strip::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:40px 40px}
-.uk-strip h2{font-family:var(--font-head);font-weight:800;font-size:clamp(2rem,4vw,3rem);letter-spacing:-0.03em;margin-bottom:0.75rem;position:relative}
-.uk-strip p{font-size:1.05rem;opacity:0.8;max-width:540px;margin:0 auto 2rem;line-height:1.7;position:relative}
-.uk-flag-row{display:flex;justify-content:center;align-items:center;gap:16px;margin-bottom:2.5rem;position:relative}
-.uk-flag-badge{display:flex;align-items:center;gap:8px;padding:10px 20px;border-radius:99px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);font-size:14px;font-weight:600;color:#fff}
-.btn-light{padding:13px 28px;border-radius:99px;background:#fff;color:var(--plum);font-family:var(--font-body);font-size:14px;font-weight:700;border:none;cursor:pointer;text-decoration:none;transition:all 0.22s;display:inline-flex;align-items:center;gap:8px;position:relative}
-.btn-light:hover{background:var(--plum3);transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,0.2)}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:3rem}
-.msforms-wrap{border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;box-shadow:0 8px 32px rgba(92,45,143,0.08);background:#fff;position:relative}
-.msforms-wrap iframe{display:block;width:100%;border:none}
-.msforms-placeholder-inner{display:flex;align-items:center;justify-content:center;height:600px;background:var(--off);color:var(--ink3);font-size:13px;font-weight:500;gap:8px}
-.contact-info{display:flex;flex-direction:column;gap:16px}
-.contact-info-card{padding:1.25rem 1.5rem;border-radius:var(--radius);border:1px solid var(--border);background:#fff;display:flex;align-items:flex-start;gap:14px}
-.ci-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px}
-.ci-label{font-size:11px;font-weight:600;color:var(--ink3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px}
-.ci-value{font-size:14px;color:var(--ink2);font-weight:500}
-footer{background:var(--ink);color:#fff;padding:4rem 3rem 2rem}
-.footer-inner{max-width:1200px;margin:0 auto}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.1)}
-.footer-brand-text{font-family:var(--font-head);font-weight:700;font-size:1.05rem;margin-bottom:0.4rem}
-.footer-brand-sub{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1rem}
-.footer-about{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7;max-width:260px}
-.footer-col-title{font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1rem}
-.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,0.65);text-decoration:none;margin-bottom:8px;transition:color 0.18s}
-.footer-col a:hover{color:#fff}
-.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:1.5rem;font-size:12px;color:rgba(255,255,255,0.35);flex-wrap:wrap;gap:0.5rem}
-.footer-badges{display:flex;gap:8px}
-.footer-badge{padding:4px 10px;border-radius:99px;border:1px solid rgba(255,255,255,0.12);font-size:11px;color:rgba(255,255,255,0.45)}
+.section-title{font-family:var(--font-head);font-weight:800;font-size:clamp(1.7rem,2.8vw,2.4rem);letter-spacing:-0.03em;color:var(--ink);margin-bottom:0.75rem;line-height:1.15}
+.section-desc{font-size:1rem;color:var(--ink2);max-width:600px;line-height:1.7;margin-bottom:2.5rem}
+
+/* ── Why Cards ── */
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+.why-card{padding:1.75rem;border-radius:var(--radius);border:1px solid var(--border);background:#fff;transition:all 0.22s}
+.why-card:hover{border-color:var(--prism);box-shadow:0 6px 20px rgba(124,58,237,0.07)}
+.why-num{font-family:var(--font-head);font-weight:800;font-size:2rem;color:var(--prism);line-height:1;margin-bottom:0.5rem}
+.why-title{font-family:var(--font-head);font-weight:700;font-size:1rem;color:var(--ink);margin-bottom:0.4rem;letter-spacing:-0.01em}
+.why-desc{font-size:13.5px;color:var(--ink2);line-height:1.7}
+
+/* ── Transition Table ── */
+.transition-table-wrap{overflow-x:auto;margin-top:1rem}
+.transition-table{width:100%;border-collapse:collapse;font-size:14px}
+.transition-table thead th{text-align:left;padding:14px 16px;font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--plum);background:var(--plum3);border-bottom:2px solid var(--border2)}
+.transition-table thead th:first-child{border-radius:var(--rad-sm) 0 0 0}
+.transition-table thead th:last-child{border-radius:0 var(--rad-sm) 0 0}
+.transition-table tbody td{padding:14px 16px;border-bottom:1px solid var(--border);color:var(--ink2);vertical-align:top;line-height:1.5}
+.transition-table tbody tr{transition:background 0.18s}
+.transition-table tbody tr:hover{background:rgba(124,58,237,0.02)}
+.transition-table .old-name{font-weight:600;color:var(--ink)}
+.transition-table .new-name{font-weight:700;color:var(--prism)}
+.transition-table .status-badge{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:600;letter-spacing:0.03em}
+.status-merging{background:#FEF3C7;color:#B45309;border:1px solid rgba(217,119,6,0.25)}
+.status-becoming{background:#EDE5FA;color:var(--plum);border:1px solid var(--border2)}
+.status-unchanged{background:#F0FDF4;color:#059669;border:1px solid rgba(5,150,105,0.25)}
+.status-retired{background:#FFF1F2;color:#BE123C;border:1px solid rgba(190,18,60,0.2)}
+
+/* ── Timeline ── */
+.timeline{position:relative;padding-left:2rem;margin-top:1rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--prism),var(--accent));border-radius:1px}
+.timeline-step{position:relative;margin-bottom:2rem;padding-left:1.5rem}
+.timeline-step:last-child{margin-bottom:0}
+.timeline-step::before{content:'';position:absolute;left:-2.35rem;top:0.35rem;width:12px;height:12px;border-radius:50%;background:var(--prism);border:2px solid #fff;box-shadow:0 0 0 3px var(--prism3)}
+.timeline-step.done::before{background:var(--accent4);box-shadow:0 0 0 3px rgba(16,185,129,0.15)}
+.timeline-step.current::before{background:var(--accent);box-shadow:0 0 0 3px rgba(233,30,140,0.2);animation:pulse 2s infinite}
+.timeline-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.2rem}
+.timeline-title{font-family:var(--font-head);font-weight:700;font-size:1.05rem;color:var(--ink);margin-bottom:0.3rem}
+.timeline-desc{font-size:13.5px;color:var(--ink2);line-height:1.6}
+
+/* ── Temporary Sites ── */
+.temp-sites-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}
+.temp-site-card{padding:1.5rem;border-radius:var(--radius);border:1px solid var(--border);background:#fff;text-decoration:none;color:inherit;transition:all 0.22s;display:flex;flex-direction:column;gap:0.5rem}
+.temp-site-card:hover{border-color:var(--prism);box-shadow:0 8px 24px rgba(124,58,237,0.1);transform:translateY(-2px)}
+.temp-site-card .ts-icon{font-size:1.6rem}
+.temp-site-card .ts-name{font-family:var(--font-head);font-weight:700;font-size:1rem;color:var(--ink);letter-spacing:-0.01em}
+.temp-site-card .ts-url{font-size:12px;color:var(--ink3);font-weight:500;word-break:break-all}
+.temp-site-card .ts-arrow{font-size:12px;font-weight:600;color:var(--prism);display:flex;align-items:center;gap:4px;margin-top:auto}
+.domain-coming{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:99px;background:#FEF3C7;border:1px solid rgba(217,119,6,0.3);font-size:12px;font-weight:600;color:#B45309;margin-top:2rem}
+
+/* ── Footer ── */
+footer{background:var(--ink);color:#fff;padding:3rem;text-align:center}
+.footer-inner{max-width:700px;margin:0 auto}
+.footer-text{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.7}
+.footer-text strong{color:#fff}
+.footer-links{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
+.footer-links a{font-size:13px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.18s}
+.footer-links a:hover{color:#fff}
+
+/* ── Reveal ── */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
 .reveal.visible{opacity:1;transform:none}
 .reveal-delay-1{transition-delay:0.1s}
 .reveal-delay-2{transition-delay:0.2s}
 .reveal-delay-3{transition-delay:0.3s}
 
-/* ── GEO REDIRECT POPUP ── */
-.geo-overlay{
-  position:fixed;inset:0;z-index:900;
-  background:rgba(13,13,18,0.65);
-  backdrop-filter:blur(10px);
-  display:flex;align-items:center;justify-content:center;
-  padding:1rem;
-  opacity:0;pointer-events:none;
-  transition:opacity 0.32s;
-}
-.geo-overlay.open{opacity:1;pointer-events:all}
-.geo-modal{
-  background:#fff;
-  border-radius:22px;
-  border:1px solid var(--border);
-  width:100%;max-width:480px;
-  padding:2.25rem;
-  transform:scale(0.93) translateY(20px);
-  opacity:0;
-  transition:transform 0.36s cubic-bezier(0.34,1.56,0.64,1),opacity 0.3s;
-  box-shadow:0 40px 80px rgba(13,13,18,0.25);
-  position:relative;
-}
-.geo-overlay.open .geo-modal{transform:scale(1) translateY(0);opacity:1}
-.geo-modal-close{
-  position:absolute;top:1.1rem;right:1.1rem;
-  width:30px;height:30px;border-radius:50%;
-  border:1.5px solid var(--border2);background:transparent;
-  cursor:pointer;font-size:14px;color:var(--ink2);
-  display:flex;align-items:center;justify-content:center;
-  transition:all 0.18s;
-}
-.geo-modal-close:hover{background:var(--plum3);border-color:var(--plum);color:var(--plum)}
-.geo-flag{font-size:3rem;margin-bottom:1rem;display:block;line-height:1}
-.geo-modal h2{
-  font-family:var(--font-head);font-weight:800;
-  font-size:1.35rem;letter-spacing:-0.02em;
-  color:var(--ink);margin-bottom:0.55rem;
-}
-.geo-modal p{font-size:14px;color:var(--ink2);line-height:1.65;margin-bottom:1.75rem}
-.geo-countdown-bar-wrap{
-  height:4px;border-radius:99px;
-  background:rgba(92,45,143,0.1);
-  overflow:hidden;margin-bottom:1.75rem;
-}
-.geo-countdown-bar{
-  height:100%;border-radius:99px;
-  background:linear-gradient(90deg,var(--plum),var(--accent));
-  width:100%;
-  transition:width 1s linear;
-}
-.geo-actions{display:flex;flex-direction:column;gap:10px}
-.geo-btn-stay{
-  padding:13px 20px;border-radius:99px;
-  background:var(--plum);color:#fff;
-  font-family:var(--font-body);font-size:14px;font-weight:600;
-  border:none;cursor:pointer;
-  transition:all 0.22s;
-  display:flex;align-items:center;justify-content:center;gap:8px;
-}
-.geo-btn-stay:hover{background:var(--plum2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(92,45,143,0.28)}
-.geo-btn-switch{
-  padding:13px 20px;border-radius:99px;
-  background:transparent;color:var(--ink2);
-  border:1.5px solid var(--border2);
-  font-family:var(--font-body);font-size:14px;font-weight:600;
-  cursor:pointer;
-  transition:all 0.22s;
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  text-decoration:none;
-}
-.geo-btn-switch:hover{background:var(--off);border-color:var(--ink3);color:var(--ink)}
-.geo-timer-text{
-  text-align:center;
-  font-size:11.5px;color:var(--ink3);
-  margin-top:12px;
-  font-weight:500;
-}
-#geoSeconds{font-weight:700;color:var(--plum)}
-
 @media(max-width:900px){
-  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
-  .about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}
-  .services-grid{grid-template-columns:1fr 1fr}
-  .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
+  .values-row{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
   .nav-links{display:none}
-  .nav-mobile-btn{display:flex}
 }
 @media(max-width:600px){
   nav{padding:0 1.25rem}
   .hero{padding:calc(var(--nav-h)+3rem) 1.25rem 3rem}
-  .section{padding:4rem 1.25rem}
-  .section-full{padding:4rem 1.25rem}
-  .services-grid{grid-template-columns:1fr}
-  .footer-top{grid-template-columns:1fr}
-  .uk-strip{padding:3.5rem 1.25rem}
-  .form-row{grid-template-columns:1fr}
-  .footer-bottom{flex-direction:column;align-items:flex-start}
+  .section{padding:3.5rem 1.25rem}
+  .section-alt{padding:3.5rem 1.25rem}
+  .merger-row{gap:0.4rem}
+  .merger-brand{font-size:0.78rem;padding:9px 14px}
+  .hero-btns{flex-direction:column;align-items:center}
+  .hero-btns .btn-primary,.hero-btns .btn-secondary{width:100%;justify-content:center}
 }
 </style>
 </head>
@@ -274,407 +208,243 @@ footer{background:var(--ink);color:#fff;padding:4rem 3rem 2rem}
     </div>
   </a>
   <div class="nav-links">
-    <a href="#about">About MPC</a>
-    <a href="#ventures">Our Ventures</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-    <span class="nav-uk-badge">🇬🇧 UK Site</span>
+    <a href="#why">Why We're Merging</a>
+    <a href="#transition">What's Changing</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#sites">New Sites</a>
+    <span class="nav-announcement-badge"><span class="badge-dot"></span> Merger in Progress</span>
   </div>
-  <button class="nav-mobile-btn" id="mobileToggle" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#about" onclick="closeMobile()">About MPC</a>
-  <a href="#ventures" onclick="closeMobile()">Our Ventures</a>
-  <a href="#services" onclick="closeMobile()">Services</a>
-  <a href="#contact" onclick="closeMobile()">Contact</a>
-</div>
-
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-inner">
-    <div class="hero-content reveal">
-      <div class="hero-eyebrow">🇬🇧 Creative Ventures · Media · Technology</div>
-      <h1>Building bold ideas<br>with a little <span class="hl2">magic.</span></h1>
-      <p class="hero-desc">Magic Plum Company UK is your home for creative ventures spanning media, branding, entertainment, and IT innovation — right here in the United Kingdom.</p>
-      <div class="hero-btns">
-        <a href="#ventures" class="btn-primary">Explore Ventures <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        <a href="#contact" class="btn-secondary">Get in Touch</a>
+    <div class="hero-eyebrow reveal">A New Chapter Begins</div>
+    <h1 class="reveal reveal-delay-1">We're becoming<br><span class="hl">Prism Media Group</span></h1>
+    <p class="hero-desc reveal reveal-delay-2">Magic Plum Company, Femboy Media Corporation, United Broadcasting Company, and Anarchy Group are joining forces to create something bigger — a unified, <strong style="color:var(--ink)">LGBTQ+ friendly media organisation</strong> built for bold storytelling and authentic representation.</p>
+
+    <div class="merger-section reveal reveal-delay-2">
+      <div class="merger-row">
+        <span class="merger-brand mpc">✦ Magic Plum Co</span>
+        <span class="merger-plus">+</span>
+        <span class="merger-brand fmc">🌈 Femboy Media Corp</span>
+        <span class="merger-plus">+</span>
+        <span class="merger-brand ubc">📡 United Broadcasting</span>
+        <span class="merger-plus">+</span>
+        <span class="merger-brand ag">🔥 Anarchy Group</span>
       </div>
+      <div class="merger-row">
+        <span class="merger-arrow">→</span>
+        <span class="merger-result">💎 Prism Media Group</span>
+      </div>
+      <p class="merger-sub reveal reveal-delay-3">One identity. One mission. Bold, colourful, and proudly inclusive.</p>
     </div>
-    <div class="hero-visual reveal reveal-delay-2">
-      <div class="hero-card">
-        <div class="hero-code" id="typeTarget" aria-hidden="true"></div>
-        <div class="hero-ticker">
-          <span class="ticker-dot"></span>
-          <span id="tickerText">9 active ventures in the UK &amp; beyond</span>
-        </div>
+
+    <div class="hero-btns reveal reveal-delay-3">
+      <a href="#sites" class="btn-primary">Visit Temporary Sites <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#why" class="btn-secondary">Why We're Merging</a>
+    </div>
+
+    <div class="values-row reveal reveal-delay-3">
+      <div class="value-card">
+        <span class="value-icon">🏳️‍🌈</span>
+        <div class="value-title">LGBTQ+ Friendly</div>
+        <div class="value-desc">A media org built by and for diverse communities, with inclusivity at our core.</div>
       </div>
-      <div class="hero-stats">
-        <div class="stat"><div class="stat-num" data-count="9">0</div><div class="stat-label">Ventures</div></div>
-        <div class="stat"><div class="stat-num" data-count="1">0</div><div class="stat-label">Home Nation</div></div>
-        <div class="stat"><div class="stat-num" data-count="5">0</div><div class="stat-label">Industries</div></div>
+      <div class="value-card">
+        <span class="value-icon">🎨</span>
+        <div class="value-title">Creative Powerhouse</div>
+        <div class="value-desc">Four brands united — entertainment, broadcasting, media, and creative chaos.</div>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">🇬🇧</span>
+        <div class="value-title">Proudly British</div>
+        <div class="value-desc">Rooted in the UK, creating content and media that reflects modern Britain.</div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="section-full" id="about">
+<!-- ═══════════════════════ WHY ═══════════════════════ -->
+<div class="section-alt" id="why">
   <div class="section">
-    <div class="section-label">About MPC UK</div>
-    <div class="about-grid">
-      <div>
-        <h2 class="section-title reveal">Where creativity meets community, storytelling and smart technology.</h2>
-        <div class="about-pills reveal reveal-delay-1">
-          <span class="pill">🇬🇧 United Kingdom</span>
-          <span class="pill">🎨 Creative</span>
-          <span class="pill">💻 Technology</span>
-          <span class="pill">📡 Media</span>
-          <span class="pill">🎓 Education</span>
-        </div>
-        <p class="about-body reveal reveal-delay-2">Magic Plum Company UK is the British home for our international creative umbrella. This site serves as the dedicated regional hub for UK audiences, providing localised access to all MPC ventures, services, and partnership opportunities.</p>
-        <p class="about-body reveal reveal-delay-3">From media production and digital branding to IT solutions and educational tools, every MPC venture is driven by the same core belief: great ideas, built boldly, change things.</p>
-        <a href="#ventures" class="btn-primary reveal" style="display:inline-flex;margin-top:0.5rem">See All Ventures</a>
+    <div class="section-label">The Reason</div>
+    <h2 class="section-title reveal">Why we're merging</h2>
+    <p class="section-desc reveal reveal-delay-1">For too long, our projects have been scattered across different brands, domains, and identities. It's time to bring everything under one roof — with one clear voice.</p>
+    <div class="why-grid">
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-num">01</div>
+        <div class="why-title">Simplify Everything</div>
+        <div class="why-desc">Nine separate brands was too many. We're consolidating our media projects into one group — Prism Media Group — so our audience knows exactly who we are and what we stand for.</div>
       </div>
-      <div class="about-visual reveal reveal-delay-1">
-        <div class="about-chip"><span class="about-chip-icon">🎨</span><span>Creative ventures with real impact</span></div>
-        <div class="about-chip"><span class="about-chip-icon">🇬🇧</span><span>Proudly British, internationally connected</span></div>
-        <div class="about-chip"><span class="about-chip-icon">💡</span><span>Innovation across media &amp; technology</span></div>
-        <div class="about-chip"><span class="about-chip-icon">🤝</span><span>Open to collaboration &amp; partnerships</span></div>
-        <div class="about-chip"><span class="about-chip-icon">🚀</span><span>Continuously expanding our portfolio</span></div>
-        <div class="about-chip"><span class="about-chip-icon">🔐</span><span>Unified identity via Plum Identity</span></div>
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-num">02</div>
+        <div class="why-title">Stronger LGBTQ+ Identity</div>
+        <div class="why-desc">Femboy Media Corporation brought LGBTQ+ representation to the forefront. Rather than keeping it as one brand among many, we're baking that inclusivity into the DNA of the entire group.</div>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-num">03</div>
+        <div class="why-title">Bigger & Bolder Together</div>
+        <div class="why-desc">United Broadcasting's streaming reach, Anarchy Group's creative edge, and Magic Plum's infrastructure are stronger combined than apart. Prism Media Group is the sum of our best parts.</div>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-num">04</div>
+        <div class="why-title">One Identity Layer</div>
+        <div class="why-desc">Plum Identity is becoming <strong>MyPMGI</strong> — a single sign-on and account hub for everything Prism. One login to access all our media, tech services, and future platforms.</div>
       </div>
     </div>
   </div>
 </div>
 
-<section class="section" id="ventures">
-  <div class="ventures-header">
-    <div>
-      <div class="section-label">Side Hobbies &amp; Brands</div>
-      <h2 class="section-title reveal">Our Ventures</h2>
-    </div>
-    <p class="section-desc reveal reveal-delay-1" style="max-width:360px;font-size:13.5px">Each venture is an independent brand operating under the Magic Plum umbrella — connected but distinct.</p>
+<!-- ═══════════════════════ TRANSITION TABLE ═══════════════════════ -->
+<section class="section" id="transition">
+  <div class="section-label">The Changes</div>
+  <h2 class="section-title reveal">What each brand becomes</h2>
+  <p class="section-desc reveal reveal-delay-1">Here's exactly what's happening to every project under the Magic Plum umbrella.</p>
+  <div class="transition-table-wrap reveal reveal-delay-2">
+    <table class="transition-table">
+      <thead>
+        <tr>
+          <th>Current Brand</th>
+          <th>Becomes</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="old-name">✦ Magic Plum Company</td>
+          <td class="new-name">Prism Media Group</td>
+          <td><span class="status-badge status-merging">Merging</span></td>
+        </tr>
+        <tr>
+          <td class="old-name">🌈 Femboy Media Corporation</td>
+          <td class="new-name">Prism Media Group</td>
+          <td><span class="status-badge status-merging">Merging</span></td>
+        </tr>
+        <tr>
+          <td class="old-name">📡 United Broadcasting Company</td>
+          <td class="new-name">Prism Media Group</td>
+          <td><span class="status-badge status-merging">Merging</span></td>
+        </tr>
+        <tr>
+          <td class="old-name">🔥 Anarchy Group</td>
+          <td class="new-name">Prism Media Group</td>
+          <td><span class="status-badge status-merging">Merging</span></td>
+        </tr>
+        <tr>
+          <td class="old-name">📺 UK Television Clips</td>
+          <td class="new-name">Prism Media Group</td>
+          <td><span class="status-badge status-merging">Merging</span></td>
+        </tr>
+        <tr>
+          <td class="old-name">💻 MagicByte ICT</td>
+          <td class="new-name">Prism Technology</td>
+          <td><span class="status-badge status-becoming">Rebranding</span></td>
+        </tr>
+        <tr>
+          <td class="old-name">🪪 Plum Identity</td>
+          <td class="new-name">MyPMGI</td>
+          <td><span class="status-badge status-becoming">Rebranding</span></td>
+        </tr>
+        <tr>
+          <td class="old-name">📚 Plum Academy</td>
+          <td class="new-name">—</td>
+          <td><span class="status-badge status-retired">Retired</span></td>
+        </tr>
+        <tr>
+          <td class="old-name">📐 Revit Helpdesk</td>
+          <td class="new-name">—</td>
+          <td><span class="status-badge status-retired">Retired</span></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="ventures-grid" id="venturesGrid"></div>
 </section>
 
-<div class="section-full" id="services">
+<!-- ═══════════════════════ TIMELINE ═══════════════════════ -->
+<div class="section-alt" id="timeline">
   <div class="section">
-    <div class="section-label">What We Offer</div>
-    <h2 class="section-title reveal">Services &amp; Capabilities</h2>
-    <p class="section-desc reveal reveal-delay-1">Across the MPC ecosystem, our ventures collectively offer a broad range of services for individuals, creators, and organisations across the UK and beyond.</p>
-    <div class="services-grid" id="servicesGrid"></div>
-  </div>
-</div>
-
-<div class="uk-strip">
-  <h2>🇬🇧 Magic Plum, Made in Britain</h2>
-  <p>You're on the official UK site for Magic Plum Company. For our international hub or other regional sites, visit magicplum.js.org.</p>
-  <div class="uk-flag-row">
-    <span class="uk-flag-badge">🇬🇧 magicplum.co.uk</span>
-    <span class="uk-flag-badge">🌐 magicplum.qzz.io</span>
-  </div>
-  <a href="https://www.magicplum.qzz.io" class="btn-light">Visit International Site ↗</a>
-</div>
-
-<section class="section" id="contact">
-  <div class="section-label">Get In Touch</div>
-  <h2 class="section-title reveal">Let's Build Something</h2>
-  <p class="section-desc reveal reveal-delay-1">Interested in collaboration, media, technology projects, or partnerships? Reach out to Magic Plum Company UK.</p>
-  <div class="contact-grid">
-    <div class="msforms-wrap reveal">
-      <div class="msforms-placeholder-inner" id="msformsPlaceholder">
-        <span>⏳</span> Loading form…
+    <div class="section-label">The Process</div>
+    <h2 class="section-title reveal">How the switch is happening</h2>
+    <p class="section-desc reveal reveal-delay-1">We're rolling this out in phases to keep everything running smoothly. Here's where we are right now.</p>
+    <div class="timeline reveal reveal-delay-2">
+      <div class="timeline-step done">
+        <div class="timeline-label">Phase 1 — Complete</div>
+        <div class="timeline-title">Announcement & Planning</div>
+        <div class="timeline-desc">Internal restructuring, brand strategy finalised, and this landing page published. The old Magic Plum site now redirects here.</div>
+      </div>
+      <div class="timeline-step current">
+        <div class="timeline-label">Phase 2 — In Progress</div>
+        <div class="timeline-title">Temporary Sites Live</div>
+        <div class="timeline-desc">Prism Media Group and Prism Technology are now accessible via temporary URLs. Content and services are being migrated across.</div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-label">Phase 3 — Coming Soon</div>
+        <div class="timeline-title">Official Domain Launch</div>
+        <div class="timeline-desc">The permanent domain <strong>prismmediagroup.co.uk</strong> will go live. MyPMGI identity platform launches. All old domains redirect to the new home.</div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-label">Phase 4 — Final</div>
+        <div class="timeline-title">Legacy Brands Retired</div>
+        <div class="timeline-desc">Old domains decommissioned. All traffic, email, and services fully migrated. Magic Plum Company officially becomes Prism Media Group.</div>
       </div>
     </div>
-    <div class="contact-info reveal reveal-delay-2">
-      <div class="contact-info-card"><span class="ci-icon">🇬🇧</span><div><div class="ci-label">UK Site</div><div class="ci-value">magicplum.co.uk</div></div></div>
-      <div class="contact-info-card"><span class="ci-icon">🌐</span><div><div class="ci-label">International Hub</div><div class="ci-value">magicplum.js.org</div></div></div>
-      <div class="contact-info-card"><span class="ci-icon">🌍</span><div><div class="ci-label">European Site</div><div class="ci-value">magicplum.eu.org</div></div></div>
-      <div class="contact-info-card"><span class="ci-icon">📡</span><div><div class="ci-label">Ventures</div><div class="ci-value">9 active brands &amp; projects</div></div></div>
-    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ TEMPORARY SITES ═══════════════════════ -->
+<section class="section" id="sites">
+  <div class="section-label">Visit Now</div>
+  <h2 class="section-title reveal">Temporary new sites</h2>
+  <p class="section-desc reveal reveal-delay-1">While we secure the permanent domain, you can visit the new Prism sites right now via these temporary URLs.</p>
+  <div class="temp-sites-grid">
+    <a href="https://prism.magicplum.co.uk" class="temp-site-card reveal reveal-delay-1">
+      <span class="ts-icon">💎</span>
+      <span class="ts-name">Prism Media Group</span>
+      <span class="ts-url">prism.magicplum.co.uk</span>
+      <span class="ts-arrow">Visit Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+    <a href="https://ict.magicplum.co.uk" class="temp-site-card reveal reveal-delay-2">
+      <span class="ts-icon">💻</span>
+      <span class="ts-name">Prism Technology</span>
+      <span class="ts-url">ict.magicplum.co.uk</span>
+      <span class="ts-arrow">Visit Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+    <a href="https://identity.magicplum.co.uk" class="temp-site-card reveal reveal-delay-3">
+      <span class="ts-icon">🪪</span>
+      <span class="ts-name">MyPMGI</span>
+      <span class="ts-url">identity.magicplum.co.uk</span>
+      <span class="ts-arrow">Visit Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+  </div>
+  <div class="domain-coming reveal reveal-delay-3">
+    🏗️ <strong>Official domain coming soon:</strong> prismmediagroup.co.uk
   </div>
 </section>
 
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <div class="footer-brand-text">✦ Magic Plum Company</div>
-        <div class="footer-brand-sub">United Kingdom</div>
-        <p class="footer-about">Creative ventures, media &amp; technology. Powering bold British ideas with a touch of magic.</p>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Ventures</div>
-        <a href="https://www.femboymediacorporation.co.uk">Femboy Media Corp</a>
-        <a href="https://prism.magicplum.co.uk">Prism Media Group</a>
-        <a href="https://ict.magicplum.co.uk">MagicByte ICT</a>
-        <a href="https://ubc.anarchygroup.uk">United Broadcasting</a>
-        <a href="https://academy.magicplum.co.uk">Plum Academy</a>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">More Brands</div>
-        <a href="https://www.anarchygroup.uk">Anarchy Group</a>
-        <a href="https://revithelpdesk.co.uk">Revit Helpdesk</a>
-        <a href="https://uktvc.magicplum.co.uk">UK Television Clips</a>
-        <a href="https://identity.magicplum.co.uk">Plum Identity</a>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Company</div>
-        <a href="#about">About MPC UK</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-        <a href="https://www.magicplum.qzz.io">International Site</a>
-        <a href="https://magicplum.eu.org">EU Site</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2025 Magic Plum Company United Kingdom. All rights reserved.</span>
-      <div class="footer-badges">
-        <span class="footer-badge">🇬🇧 United Kingdom</span>
-        <span class="footer-badge">JS Powered</span>
-      </div>
+    <p class="footer-text">
+      <strong>Magic Plum Company</strong> is becoming <strong>Prism Media Group</strong> — an LGBTQ+ friendly media organisation.<br>
+      This is a transitional page. The full site is coming to <strong>prismmediagroup.co.uk</strong> soon.
+    </p>
+    <div class="footer-links">
+      <a href="#why">Why We're Merging</a>
+      <a href="#transition">What's Changing</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#sites">Temporary Sites</a>
+      <a href="https://prism.magicplum.co.uk">Prism Media Group</a>
     </div>
   </div>
 </footer>
 
-<!-- ── GEO REDIRECT POPUP ── -->
-<div class="geo-overlay" id="geoOverlay" role="dialog" aria-modal="true" aria-label="Region notice">
-  <div class="geo-modal" id="geoModal">
-    <button class="geo-modal-close" id="geoClose" aria-label="Close">✕</button>
-    <span class="geo-flag">🌍</span>
-    <h2>You appear to be outside the UK</h2>
-    <p>This is the <strong>Magic Plum Company United Kingdom</strong> site. You may get a better experience on our international hub at <strong>magicplum.js.org</strong>.</p>
-    <div class="geo-countdown-bar-wrap">
-      <div class="geo-countdown-bar" id="geoBar"></div>
-    </div>
-    <div class="geo-actions">
-      <button class="geo-btn-stay" id="geoBtnStay">
-        🇬🇧 Stay on United Kingdom site
-      </button>
-      <a href="https://www.magicplum.qzz.io" class="geo-btn-switch" id="geoBtnSwitch">
-        🌐 Switch to International site
-      </a>
-    </div>
-    <p class="geo-timer-text">Redirecting to the international site in <span id="geoSeconds">10</span>s — or choose above</p>
-  </div>
-</div>
-
 <script>
-// ═══════════════════════════════════════════════════════════
-//  FIX: Lazy-load MS Forms iframe so it never steals focus on page load
-// ═══════════════════════════════════════════════════════════
-(function() {
-  var placeholder = document.getElementById('msformsPlaceholder');
-  var wrap = placeholder && placeholder.parentElement;
-  var loaded = false;
-
-  function loadIframe() {
-    if (loaded || !wrap) return;
-    loaded = true;
-    // Remove placeholder
-    if (placeholder) placeholder.remove();
-    // Create iframe now, when user is near the form
-    var iframe = document.createElement('iframe');
-    iframe.src = 'https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAaftu8NUQ0NENldUMDhWVVA2VjhNRTNNQUZFWVNMVi4u';
-    iframe.width = '100%';
-    iframe.height = '600';
-    iframe.frameBorder = '0';
-    iframe.style.cssText = 'border:none;max-width:100%;display:block';
-    wrap.appendChild(iframe);
-  }
-
-  // Use IntersectionObserver to only load when scrolled into view
-  if ('IntersectionObserver' in window && placeholder) {
-    var observer = new IntersectionObserver(function(entries) {
-      if (entries[0].isIntersecting) {
-        loadIframe();
-        observer.disconnect();
-      }
-    }, { rootMargin: '200px' }); // start loading 200px before it's visible
-    observer.observe(placeholder);
-  } else {
-    // Fallback: just load it after a short delay
-    setTimeout(loadIframe, 2000);
-  }
-})();
-
-// ═══════════════════════════════════════════════════════════
-//  DATA
-// ═══════════════════════════════════════════════════════════
-const VENTURES = [
-  { name:'Femboy Media Corporation',    icon:'🌈', iconBg:'#FFF0F5', tag:'Entertainment',    desc:'Modern entertainment, creator culture, and expressive digital media for diverse communities.', url:'https://www.femboymediacorporation.co.uk' },
-  { name:'Prism Media Group',           icon:'💎', iconBg:'#EFF6FF', tag:'Branding & Media', desc:'Branding, visuals, campaigns, and colourful storytelling that cuts through the noise.', url:'https://prism.magicplum.co.uk' },
-  { name:'MagicByte ICT',               icon:'💻', iconBg:'#F0FDF4', tag:'Technology',       desc:'Tech support, web solutions, systems, and comprehensive ICT services for businesses.', url:'https://ict.magicplum.co.uk' },
-  { name:'United Broadcasting Company', icon:'📡', iconBg:'#F0F9FF', tag:'Broadcasting',    desc:'Broadcasting, radio, streaming, and live media experiences delivered globally.', url:'https://ubc.anarchygroup.uk' },
-  { name:'Plum Academy',                icon:'📚', iconBg:'#FEFCE8', tag:'Education',        desc:'School support, revision tools, and educational resources for learners at every stage.', url:'https://academy.magicplum.co.uk' },
-  { name:'Anarchy Group',               icon:'🔥', iconBg:'#FFF7ED', tag:'Creative',         desc:'Media, chaos, destruction, and no-form creativity — bold ideas without boundaries.', url:'https://www.anarchygroup.uk' },
-  { name:'Revit Helpdesk',              icon:'📐', iconBg:'#F5F3FF', tag:'Technical Support',desc:'CAD, Revit, Autodesk, and technical support for architects, engineers, and designers.', url:'https://revithelpdesk.co.uk' },
-  { name:'UK Television Clips',         icon:'📺', iconBg:'#FFF1F2', tag:'Archives & Media', desc:'British television archives, memorable clips, broadcasting history, and entertainment moments.', url:'https://uktvc.magicplum.co.uk' },
-  { name:'Plum Identity',               icon:'🪪', iconBg:'#F0F9FF', tag:'Platform',         desc:'A unified sign-on and identity platform across the entire Magic Plum ecosystem.', url:'https://identity.magicplum.co.uk' },
-];
-
-const SERVICES = [
-  { icon:'🎨', name:'Creative & Branding',  desc:'Visual identity, campaigns, and expressive media design from Prism Media Group and the wider MPC creative family.' },
-  { icon:'💻', name:'Technology & ICT',     desc:'Web development, systems, tech support, and digital infrastructure through MagicByte ICT.' },
-  { icon:'📡', name:'Media & Broadcasting', desc:'Radio, streaming, live media, and broadcasting services through United Broadcasting Company.' },
-  { icon:'🎓', name:'Education & Learning', desc:'School revision, learning support, and educational content via Plum Academy.' },
-  { icon:'🔐', name:'Identity & Platforms', desc:'Unified authentication and platform identity across all ventures through Plum Identity.' },
-  { icon:'🤝', name:'Partnerships',         desc:'Strategic collaboration, cross-venture projects, and international creative partnerships.' },
-];
-
-// ═══════════════════════════════════════════════════════════
-//  RENDER
-// ═══════════════════════════════════════════════════════════
-document.getElementById('venturesGrid').innerHTML = VENTURES.map(v => `
-  <a class="venture-card reveal" href="${v.url}">
-    <div class="vc-top">
-      <div class="vc-icon" style="background:${v.iconBg}">${v.icon}</div>
-      <span class="vc-tag">${v.tag}</span>
-    </div>
-    <div class="vc-name">${v.name}</div>
-    <div class="vc-desc">${v.desc}</div>
-    <span class="vc-link">Visit Site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-  </a>`).join('');
-
-document.getElementById('servicesGrid').innerHTML = SERVICES.map((s,i) => `
-  <div class="service-card reveal reveal-delay-${(i%3)+1}">
-    <div class="service-icon">${s.icon}</div>
-    <div class="service-name">${s.name}</div>
-    <div class="service-desc">${s.desc}</div>
-  </div>`).join('');
-
-// ═══════════════════════════════════════════════════════════
-//  GEO REDIRECT POPUP
-// ═══════════════════════════════════════════════════════════
-const INTL_URL = 'https://www.magicplum.qzz.io';
-const COUNTDOWN = 10;
-
-let geoTimer = null;
-let geoSecondsLeft = COUNTDOWN;
-let geoDismissed = false;
-
-function stopGeoTimer() {
-  if (geoTimer) { clearInterval(geoTimer); geoTimer = null; }
-}
-
-function dismissGeo() {
-  if (geoDismissed) return;
-  geoDismissed = true;
-  stopGeoTimer();
-  const overlay = document.getElementById('geoOverlay');
-  overlay.classList.remove('open');
-  overlay.addEventListener('transitionend', () => { overlay.style.display = 'none'; }, { once: true });
-}
-
-function openGeoPopup() {
-  const overlay = document.getElementById('geoOverlay');
-  const bar     = document.getElementById('geoBar');
-  const secEl   = document.getElementById('geoSeconds');
-
-  overlay.style.display = 'flex';
-  overlay.getBoundingClientRect();
-  overlay.classList.add('open');
-
-  bar.style.transition = 'none';
-  bar.style.width = '100%';
-  bar.getBoundingClientRect();
-  bar.style.transition = `width ${COUNTDOWN}s linear`;
-  bar.style.width = '0%';
-
-  geoSecondsLeft = COUNTDOWN;
-  secEl.textContent = geoSecondsLeft;
-
-  geoTimer = setInterval(() => {
-    geoSecondsLeft--;
-    secEl.textContent = geoSecondsLeft;
-    if (geoSecondsLeft <= 0) {
-      stopGeoTimer();
-      window.location.href = INTL_URL;
-    }
-  }, 1000);
-}
-
-document.getElementById('geoBtnStay').addEventListener('click', dismissGeo);
-document.getElementById('geoBtnSwitch').addEventListener('click', () => { stopGeoTimer(); });
-document.getElementById('geoClose').addEventListener('click', () => {
-  stopGeoTimer();
-  if (geoDismissed) return;
-  geoDismissed = true;
-  document.getElementById('geoOverlay').classList.remove('open');
-  setTimeout(() => { window.location.href = INTL_URL; }, 320);
-});
-document.getElementById('geoOverlay').addEventListener('click', function(e) {
-  if (e.target === this) dismissGeo();
-});
-document.addEventListener('keydown', e => { if (e.key === 'Escape') dismissGeo(); });
-
-async function checkGeo() {
-  try {
-    const res = await fetch('https://ipapi.co/json/', { signal: AbortSignal.timeout(4000) });
-    if (!res.ok) return;
-    const data = await res.json();
-    if (data && data.country_code && data.country_code !== 'GB') {
-      openGeoPopup();
-    }
-  } catch {
-    // Network error or timeout — silently fail
-  }
-}
-
-// ═══════════════════════════════════════════════════════════
-//  SCROLL REVEAL
-// ═══════════════════════════════════════════════════════════
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
-  });
-}, { threshold: 0.08 });
-
-function initReveal() {
-  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-}
-
-// ═══════════════════════════════════════════════════════════
-//  NAV
-// ═══════════════════════════════════════════════════════════
-window.addEventListener('scroll', () => {
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
-
-// ═══════════════════════════════════════════════════════════
-//  MOBILE MENU
-// ═══════════════════════════════════════════════════════════
-const mobileToggle = document.getElementById('mobileToggle');
-const mobileMenu   = document.getElementById('mobileMenu');
-let menuOpen = false;
-
-mobileToggle.addEventListener('click', () => {
-  menuOpen = !menuOpen;
-  mobileMenu.classList.toggle('open', menuOpen);
-  const spans = mobileToggle.querySelectorAll('span');
-  if (menuOpen) {
-    spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
-    spans[1].style.opacity   = '0';
-    spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
-  } else {
-    spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-  }
-});
-
-function closeMobile() {
-  menuOpen = false;
-  mobileMenu.classList.remove('open');
-  mobileToggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-}
-
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
 //  CURSOR
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
 const cursor = document.getElementById('cursor');
 document.addEventListener('mousemove', e => {
   cursor.style.left = e.clientX + 'px';
@@ -685,86 +455,44 @@ document.querySelectorAll('a,button').forEach(el => {
   el.addEventListener('mouseleave', () => cursor.classList.remove('big'));
 });
 
-// ═══════════════════════════════════════════════════════════
-//  TYPEWRITER
-// ═══════════════════════════════════════════════════════════
-const CODE_LINES = [
-  '<span class="cm">// Magic Plum Company UK</span>',
-  '<span class="kw">const</span> mpc = {',
-  '  name: <span class="str">"Magic Plum Company"</span>,',
-  '  region: <span class="str">"United Kingdom"</span>,',
-  '  ventures: <span class="num">9</span>,',
-  '  home: <span class="str">"magicplum.co.uk"</span>,',
-  '  mission: <span class="str">"Build bold ideas"</span>,',
-  '};',
-  '',
-  '<span class="fn">launch</span>(mpc.ventures);',
-];
-
-(function typewriter() {
-  const el = document.getElementById('typeTarget');
-  let lineIdx = 0, charIdx = 0;
-
-  function renderLineUpTo(li, ci) {
-    let visible = 0, result = '', inTag = false;
-    const src = CODE_LINES[li];
-    for (let i = 0; i < src.length; i++) {
-      const c = src[i];
-      if (c === '<') { inTag = true;  result += c; continue; }
-      if (c === '>') { inTag = false; result += c; continue; }
-      if (inTag)     { result += c; continue; }
-      if (visible < ci) { result += c; visible++; } else break;
-    }
-    return result + '<span style="border-right:2px solid var(--accent)">&nbsp;</span>';
-  }
-
-  function tick() {
-    if (lineIdx >= CODE_LINES.length) return;
-    const stripped = CODE_LINES[lineIdx].replace(/<[^>]+>/g, '');
-    if (charIdx <= stripped.length) {
-      el.innerHTML = CODE_LINES.slice(0, lineIdx).join('<br>') + (lineIdx > 0 ? '<br>' : '') + renderLineUpTo(lineIdx, charIdx);
-      charIdx++;
-      setTimeout(tick, charIdx === 1 ? 100 : 28);
-    } else {
-      lineIdx++; charIdx = 0;
-      setTimeout(tick, 160);
-    }
-  }
-  tick();
-})();
-
-// ═══════════════════════════════════════════════════════════
-//  COUNTERS
-// ═══════════════════════════════════════════════════════════
-function animateCounters() {
-  document.querySelectorAll('[data-count]').forEach(el => {
-    const target = parseInt(el.dataset.count);
-    let current = 0;
-    const step = () => { current = Math.min(current + 1, target); el.textContent = current; if (current < target) setTimeout(step, 120); };
-    setTimeout(step, 800);
+// ═══════════════════════════════════════════════
+//  SCROLL REVEAL
+// ═══════════════════════════════════════════════
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
   });
+}, { threshold: 0.08 });
+
+function initReveal() {
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 }
 
-// ═══════════════════════════════════════════════════════════
-//  TICKER
-// ═══════════════════════════════════════════════════════════
-const TICKERS = ['9 active ventures in the UK & beyond','Proudly British, internationally connected','Creative · Media · Technology · Education','magicplum.co.uk — Your UK Home'];
-let tickerIdx = 0;
-const tickerEl = document.getElementById('tickerText');
-tickerEl.style.transition = 'opacity 0.25s';
-setInterval(() => {
-  tickerIdx = (tickerIdx + 1) % TICKERS.length;
-  tickerEl.style.opacity = '0';
-  setTimeout(() => { tickerEl.textContent = TICKERS[tickerIdx]; tickerEl.style.opacity = '1'; }, 250);
-}, 3000);
+// ═══════════════════════════════════════════════
+//  NAV SCROLL SHADOW
+// ═══════════════════════════════════════════════
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
 
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
+//  SMOOTH SCROLL FOR ANCHOR LINKS
+// ═══════════════════════════════════════════════
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// ═══════════════════════════════════════════════
 //  INIT
-// ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════
 window.addEventListener('DOMContentLoaded', () => {
   initReveal();
-  animateCounters();
-  setTimeout(checkGeo, 800);
 });
 </script>
 </body>
